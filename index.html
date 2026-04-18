@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d0f12" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="易行简：把好奇心写清楚。数理哲地、人工智能与人生问题的研读与问难。" />
+  <meta property="og:title" content="易行简 — 把好奇心写清楚" />
+  <meta property="og:description" content="公开的研读与随想：数理哲地与人工智能，愿以清通文字与人对读。" />
+  <meta property="og:type" content="website" />
+  <title>易行简 — 把好奇心写清楚</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%2314181f' width='100' height='100' rx='22'/%3E%3Cpath fill='none' stroke='%23e8b86d' stroke-width='3' stroke-linecap='round' d='M14 72 Q50 48 86 72'/%3E%3Cpath fill='none' stroke='%23c9984a' stroke-width='2.5' stroke-linecap='round' opacity='.75' d='M18 58 Q50 38 82 58'/%3E%3Ccircle cx='72' cy='28' r='5' fill='%2378a8c8'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="logo-lockup" href="#intro" aria-label="易行简 · 首页">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="80" height="80" rx="18" fill="#14181f" stroke="rgba(232,184,109,0.25)" stroke-width="1"/>
+            <path d="M12 54C28 38 52 38 68 54" stroke="url(#g1)" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M10 64C30 46 50 46 70 64" stroke="#e8b86d" stroke-width="2.2" stroke-linecap="round" opacity="0.9"/>
+            <path d="M14 44C32 30 48 30 66 44" stroke="#78a8c8" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+            <circle cx="58" cy="22" r="5" fill="#78a8c8" opacity="0.85"/>
+            <defs>
+              <linearGradient id="g1" x1="12" y1="54" x2="68" y2="54" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#78a8c8"/>
+                <stop offset="1" stop-color="#e8b86d"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">易行简</span>
+      </a>
+      <nav class="site-header__nav" aria-label="页面分区">
+        <a href="#intro">序章</a>
+        <a href="#writing">学思</a>
+        <a href="#atlas">图谱</a>
+        <a href="#tools">工具</a>
+        <a href="#tracks">方向</a>
+        <a href="#contact">联系</a>
+      </nav>
+      <a class="lang-pill" href="#" aria-disabled="true" title="英文页可后续再加">EN</a>
+    </div>
+  </header>
+
+  <div class="page-progress" aria-hidden="true">
+    <span id="progress-current">1</span><span class="page-progress__sep">/</span><span id="progress-total">6</span>
+  </div>
+
+  <nav class="section-dots" aria-label="快速跳转">
+    <a href="#intro" class="section-dots__dot is-active" data-index="1" aria-label="序章"></a>
+    <a href="#writing" class="section-dots__dot" data-index="2" aria-label="学思"></a>
+    <a href="#atlas" class="section-dots__dot" data-index="3" aria-label="图谱"></a>
+    <a href="#tools" class="section-dots__dot" data-index="4" aria-label="工具"></a>
+    <a href="#tracks" class="section-dots__dot" data-index="5" aria-label="方向"></a>
+    <a href="#contact" class="section-dots__dot" data-index="6" aria-label="联系"></a>
+  </nav>
+
+  <main>
+    <!-- 1 序章：对标「李自然」首屏 — 姓名、副标题、长叙事、频道 -->
+    <section id="intro" class="panel panel--intro" data-panel="1">
+      <div class="wrap panel__inner">
+        <div class="intro-split">
+          <div class="intro-split__hero">
+            <p class="intro-slogan">把好奇心写清楚。</p>
+            <p class="intro-slogan-en">Notes on curiosity.</p>
+            <h1 class="intro-name">易行简</h1>
+            <p class="intro-roman">Yi Xingjian</p>
+          </div>
+          <div class="intro-split__story">
+            <h2 class="intro-tagline">从习题册边上，到更宽的旷野</h2>
+            <div class="prose prose--intro">
+              <p>
+                我在做与 <strong>人工智能</strong> 相关的工作，但心里总有一块地方留给「与 KPI 无关的问题」：数学的结构、物理的图像、化学与生命如何接在一起、哲学里那些老问题，以及地球几十亿年尺度上发生过什么。
+              </p>
+              <p>
+                这里是我愿意放在网络上的<strong>研读与问难</strong>：所读之书、尚未想透的关节、偶有会心之处，都尽量以可追溯的条理写出，而非吞吐暧昧的碎念。先求对己诚实，再谈是否于人有益；路很长，文字可以慢慢养。
+              </p>
+            </div>
+            <div class="channel-bar">
+              <span class="channel-bar__label">行迹与频道</span>
+              <div class="channel-bar__links">
+                <a class="channel-chip" href="#" aria-disabled="true">即刻（待接）</a>
+                <a class="channel-chip" href="#" aria-disabled="true">GitHub</a>
+                <a class="channel-chip" href="mailto:hello@example.com">邮件</a>
+              </div>
+            </div>
+            <div class="panel-cta-row">
+              <a class="btn btn-primary" href="#writing">读最新篇目</a>
+              <a class="btn" href="#atlas">看图谱资源</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="panel-foot wrap">
+        <span>© <span class="js-year"></span> 易行简</span>
+        <span class="panel-foot__num">1 / 6</span>
+      </footer>
+    </section>
+
+    <!-- 2 文章列表 -->
+    <section id="writing" class="panel" data-panel="2">
+      <div class="wrap panel__inner panel__inner--list">
+        <header class="block-header">
+          <h2 class="block-header__title">学思录</h2>
+          <p class="block-header__desc">读与思的纪要：新篇按年月置顶，旧文沉于后页，留待日后订正。</p>
+        </header>
+        <ul class="article-list">
+          <li>
+            <a href="#" class="article-list__link" data-soon>
+              <time datetime="2026-04-14">2026-04-14</time>
+              <span class="article-list__title">占位：第一篇正式笔记的标题写在这里</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="article-list__link" data-soon>
+              <time datetime="2026-04-01">2026-04-01</time>
+              <span class="article-list__title">占位：可写「某本书第 x 章读后」或「某篇论文摘要」</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="article-list__link" data-soon>
+              <time datetime="2026-03-20">2026-03-20</time>
+              <span class="article-list__title">占位：专题系列开坑说明</span>
+            </a>
+          </li>
+        </ul>
+        <p class="more-link-wrap">
+          <a href="#writing" class="more-link">查看全部篇目 →</a>
+          <span class="more-hint">若日后改用博客或 /posts 目录，只须改此链接与上列条目 href。</span>
+        </p>
+      </div>
+      <footer class="panel-foot wrap">
+        <span>© <span class="js-year"></span> 易行简</span>
+        <span class="panel-foot__num">2 / 6</span>
+      </footer>
+    </section>
+
+    <!-- 3 双卡资源：对标「AI 论文简报 / 资讯速览」 -->
+    <section id="atlas" class="panel" data-panel="3">
+      <div class="wrap panel__inner">
+        <header class="block-header block-header--center">
+          <h2 class="block-header__title">图谱与精读</h2>
+          <p class="block-header__desc">一块是交互时间线，一块留给长文精读——结构先搭好，内容慢慢填。</p>
+        </header>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-card__top">
+              <span class="feature-card__eyebrow">Interactive</span>
+              <h3 class="feature-card__title">智识时间线</h3>
+              <div class="tag-row">
+                <span class="tag">哲学</span>
+                <span class="tag">数理</span>
+                <span class="tag">地质</span>
+                <span class="tag">AI</span>
+              </div>
+            </div>
+            <p class="feature-card__body">
+              可横滑的多学科年表：从古代到近现代的主要节点，点开可看简介。适合作为「我今天好奇从哪一段开始」的入口。
+            </p>
+            <a class="feature-card__cta" href="timeline.html">打开时间线 →</a>
+          </article>
+          <article class="feature-card feature-card--muted">
+            <div class="feature-card__top">
+              <span class="feature-card__eyebrow">Coming</span>
+              <h3 class="feature-card__title">论文与前沿精读</h3>
+              <div class="tag-row">
+                <span class="tag tag--ghost">预印本</span>
+                <span class="tag tag--ghost">笔记</span>
+              </div>
+            </div>
+            <p class="feature-card__body">
+              计划中的栏目：单篇论文的结构化摘要、复现线索与个人判断。上线后在此放首篇链接与订阅入口。
+            </p>
+            <span class="feature-card__cta feature-card__cta--disabled">筹备中</span>
+          </article>
+        </div>
+      </div>
+      <footer class="panel-foot wrap">
+        <span>© <span class="js-year"></span> 易行简</span>
+        <span class="panel-foot__num">3 / 6</span>
+      </footer>
+    </section>
+
+    <!-- 4 工具箱 -->
+    <section id="tools" class="panel" data-panel="4">
+      <div class="wrap panel__inner">
+        <header class="block-header">
+          <h2 class="block-header__title">工具箱</h2>
+          <p class="block-header__desc">自己会用、就会持续维护的小页面与小脚本——放心收藏。</p>
+        </header>
+        <article class="tool-row">
+          <div class="tool-row__main">
+            <h3 class="tool-row__title">智识时间线 · 网页</h3>
+            <div class="tag-row">
+              <span class="tag tag--accent">静态</span>
+              <span class="tag">HTML</span>
+              <span class="tag">可自托管</span>
+            </div>
+            <p class="tool-row__desc">
+              七门学科分 tab 浏览，比例尺为「古代压缩、近现代拉宽」，地质纪年单独映射。无需后端，整页可离线下载使用。适合课堂展示、自学复盘或当桌面书签。
+            </p>
+          </div>
+          <div class="tool-row__action">
+            <a class="btn btn-primary" href="timeline.html">立即打开</a>
+          </div>
+        </article>
+        <article class="tool-row tool-row--soon">
+          <div class="tool-row__main">
+            <h3 class="tool-row__title">更多工具</h3>
+            <div class="tag-row">
+              <span class="tag tag--ghost">预留</span>
+            </div>
+            <p class="tool-row__desc">
+              以后若有脚本、小助手或开源项目，可沿用本区块版式：左侧说明与标签，右侧主按钮。参考布局思路来自李自然站点的工具箱分区。
+            </p>
+          </div>
+          <div class="tool-row__action">
+            <span class="btn btn--disabled">即将上线</span>
+          </div>
+        </article>
+      </div>
+      <footer class="panel-foot wrap">
+        <span>© <span class="js-year"></span> 易行简</span>
+        <span class="panel-foot__num">4 / 6</span>
+      </footer>
+    </section>
+
+    <!-- 5 方向 -->
+    <section id="tracks" class="panel" data-panel="5">
+      <div class="wrap panel__inner">
+        <header class="block-header">
+          <h2 class="block-header__title">正在啃的大方向</h2>
+          <p class="block-header__desc">不是课表，是给自己和访客的标签云；文章与笔记会与之对应。</p>
+        </header>
+        <ul class="track-grid" aria-label="学习方向">
+          <li>数学</li>
+          <li>物理</li>
+          <li>化学</li>
+          <li>生物</li>
+          <li>哲学</li>
+          <li>地质 · 地球史</li>
+          <li>人工智能</li>
+        </ul>
+      </div>
+      <footer class="panel-foot wrap">
+        <span>© <span class="js-year"></span> 易行简</span>
+        <span class="panel-foot__num">5 / 6</span>
+      </footer>
+    </section>
+
+    <!-- 6 联系 -->
+    <section id="contact" class="panel panel--contact" data-panel="6">
+      <div class="wrap panel__inner">
+        <header class="block-header block-header--center">
+          <h2 class="block-header__title">联系方式</h2>
+          <p class="block-header__desc">同学科、同好奇，或单纯路过，都欢迎写信。</p>
+        </header>
+        <div class="contact-card">
+          <p class="contact-card__lead">邮件回复可能不快，但会看。</p>
+          <a class="contact-card__mail" href="mailto:hello@example.com?subject=易行简%20-%20来信">hello@example.com</a>
+          <p class="contact-card__hint">请替换为你的真实邮箱；静态托管说明见 <strong>DEPLOY.txt</strong>。</p>
+        </div>
+      </div>
+      <footer class="panel-foot wrap">
+        <span>© <span class="js-year"></span> 易行简</span>
+        <span class="panel-foot__num">6 / 6</span>
+      </footer>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>易行简 · Yi Xingjian · 学思与述作</p>
+  </footer>
+
+  <script>
+    (function () {
+      var y = new Date().getFullYear();
+      document.querySelectorAll(".js-year").forEach(function (el) {
+        el.textContent = y;
+      });
+
+      var panels = document.querySelectorAll("[data-panel]");
+      var total = panels.length;
+      var curEl = document.getElementById("progress-current");
+      var totalEl = document.getElementById("progress-total");
+      var dots = document.querySelectorAll(".section-dots__dot");
+      if (totalEl) totalEl.textContent = String(total);
+
+      function setActive(index) {
+        if (curEl) curEl.textContent = String(index);
+        dots.forEach(function (d) {
+          d.classList.toggle("is-active", Number(d.getAttribute("data-index")) === index);
+        });
+      }
+
+      if (!("IntersectionObserver" in window) || !panels.length) {
+        setActive(1);
+        return;
+      }
+
+      setActive(1);
+
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (en) {
+            if (!en.isIntersecting) return;
+            var n = Number(en.target.getAttribute("data-panel"));
+            if (n) setActive(n);
+          });
+        },
+        { root: null, rootMargin: "-32% 0px -28% 0px", threshold: 0 }
+      );
+
+      panels.forEach(function (p) {
+        io.observe(p);
+      });
+
+      document.querySelectorAll(".article-list__link[data-soon]").forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          e.preventDefault();
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

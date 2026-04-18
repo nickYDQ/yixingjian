@@ -1,0 +1,30 @@
+易行简 · 部署说明
+================
+
+对外站点目录
+------------
+以 **yixingjian/** 为网站根目录部署即可，内含：
+
+  index.html      主页
+  timeline.html   智识时间线（与首页内链一致）
+  assets/         样式
+  404.html / robots.txt
+
+仓库根目录的 index.html 仅为入口导航，不必单独部署。
+
+本地预览
+--------
+  cd yixingjian && python3 -m http.server 8080
+浏览器打开 http://127.0.0.1:8080
+
+托管（任选）
+------------
+【Vercel】导入 Git 仓库，Root Directory 设为 yixingjian，Framework: Other。
+【Netlify】将 yixingjian 文件夹拖入 Deploy。
+【GitHub Pages】仓库 Settings → Pages：若整仓含多项目，可用 /docs 放 yixingjian 内容，或单独建仓库只存 yixingjian。
+
+上线后
+------
+· index.html 中取消注释 og:url、canonical，填正式 https 地址。
+· 替换 mailto:hello@example.com。
+· 详见 UPDATE.txt 如何改文章与时间线。

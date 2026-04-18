@@ -1,0 +1,29 @@
+易行简 · 日常怎么更新
+====================
+
+一、改首页文案与列表
+------------------
+编辑 yixingjian/index.html 即可（纯静态，无需构建）。
+
+· 序章、学思录列表、图谱区、工具箱、联系邮箱：都在同一文件里搜中文替换。
+· 「学思录」下列表：每个 <li> 里改 <time>、标题文字；有独立文章后把 <a href="#"> 换成真实 URL，并去掉 data-soon。
+
+二、改智识时间线
+----------------
+编辑 yixingjian/timeline.html 内 JavaScript 的 DATA 对象：
+
+· 某学科：在对应 key（如 philosophy）的 events 数组里增删条目。
+· 每条建议保留：year（或地质用 ma）、person、event、achievement；achievement 可写长一些，详情面板会完整展示。
+
+三、样式与小图标
+----------------
+· 全局样式：yixingjian/assets/style.css
+· Favicon：index.html 里 data URI，或换为 favicon.ico 放在 yixingjian/ 根目录并在 <head> 里 <link rel="icon" href="/favicon.ico">。
+
+四、上线与域名
+--------------
+见 DEPLOY.txt（Vercel / Netlify / GitHub Pages）。部署根目录选 yixingjian 时，时间线与首页同域，链接无需再改。
+
+五、日后若改用博客生成器
+------------------------
+可把「学思录」改为指向 Hugo/Astro 生成的 /posts/，首页只保留简介与导航；本仓库结构仍可保留 timeline.html 手工维护。
