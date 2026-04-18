@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0c10" />
-  <title>智识长河 — 哲学 · 数理 · 生命 · 地球 · 智能</title>
+  <title>智识长河 — 哲学 · 数理 · 地球 · 智能</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #0a0c10;
@@ -15,8 +15,9 @@
       --surface2: #181e2c;
       --ink: #f0ede6;
       --muted: #8694a8;
-      --line: rgba(240, 237, 230, 0.08);
-      --line2: rgba(240, 237, 230, 0.14);
+      --dim: #5c6778;
+      --line: rgba(240,237,230,0.08);
+      --line2: rgba(240,237,230,0.14);
       --philosophy: #d4a574;
       --math: #5eb8c9;
       --physics: #d4b435;
@@ -25,299 +26,84 @@
       --geology: #a89078;
       --ai: #b87fd9;
       --accent: var(--philosophy);
-      --font-d: "Outfit", "Noto Sans SC", system-ui, sans-serif;
-      --font-b: "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+      --font-d: "Outfit","Noto Sans SC",system-ui,sans-serif;
+      --font-b: "Noto Sans SC","PingFang SC",system-ui,sans-serif;
+      --font-s: "Noto Serif SC","Spectral",Georgia,serif;
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: var(--font-b);
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;font-family:var(--font-b);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-    .page {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      min-height: 100vh;
-    }
-    @media (max-width: 860px) {
-      .page { grid-template-columns: 1fr; }
-    }
+    .page{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+    @media(max-width:860px){.page{grid-template-columns:1fr}}
 
-    /* ─── 左侧边栏 ─── */
-    .sidebar {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-      background: var(--surface);
-      border-right: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      z-index: 10;
-    }
-    @media (max-width: 860px) {
-      .sidebar {
-        position: fixed;
-        left: 0; top: 0; bottom: 0;
-        width: 280px;
-        transform: translateX(-100%);
-        transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
-        box-shadow: 8px 0 32px rgba(0,0,0,0.5);
-      }
-      .sidebar.open { transform: translateX(0); }
-    }
+    .sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--surface);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:10}
+    @media(max-width:860px){.sidebar{position:fixed;left:0;top:0;bottom:0;width:260px;transform:translateX(-100%);transition:transform .3s cubic-bezier(.22,1,.36,1);box-shadow:8px 0 32px rgba(0,0,0,.5)}.sidebar.open{transform:translateX(0)}}
 
-    .sidebar-head {
-      padding: 1.5rem 1.25rem 0.75rem;
-      border-bottom: 1px solid var(--line);
-    }
-    .sidebar-head h1 {
-      font-family: var(--font-d);
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      margin: 0 0 0.25rem;
-      background: linear-gradient(100deg, var(--philosophy), var(--math) 30%, var(--physics) 55%, var(--ai));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .sidebar-head p {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.5;
-    }
+    .sidebar-head{padding:1.25rem 1rem .6rem;border-bottom:1px solid var(--line)}
+    .sidebar-head h1{font-family:var(--font-d);font-size:1.05rem;font-weight:700;letter-spacing:.06em;margin:0 0 .2rem;background:linear-gradient(100deg,var(--philosophy),var(--math) 30%,var(--physics) 55%,var(--ai));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .sidebar-head p{font-size:.72rem;color:var(--muted);margin:0;line-height:1.45}
 
-    .disc-list {
-      list-style: none;
-      margin: 0;
-      padding: 0.65rem 0;
-      flex: 1;
-    }
-    .disc-list li { margin: 0; }
-    .disc-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.7rem 1.25rem;
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-family: var(--font-d);
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-      text-align: left;
-    }
-    .disc-btn:hover { background: rgba(255,255,255,0.03); color: var(--ink); }
-    .disc-btn.active { color: var(--ink); background: rgba(255,255,255,0.05); }
-    .disc-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      box-shadow: 0 0 8px currentColor;
-    }
-    .disc-btn[data-d="philosophy"] .disc-dot { background: var(--philosophy); color: var(--philosophy); }
-    .disc-btn[data-d="math"] .disc-dot { background: var(--math); color: var(--math); }
-    .disc-btn[data-d="physics"] .disc-dot { background: var(--physics); color: var(--physics); }
-    .disc-btn[data-d="chemistry"] .disc-dot { background: var(--chemistry); color: var(--chemistry); }
-    .disc-btn[data-d="biology"] .disc-dot { background: var(--biology); color: var(--biology); }
-    .disc-btn[data-d="geology"] .disc-dot { background: var(--geology); color: var(--geology); }
-    .disc-btn[data-d="ai"] .disc-dot { background: var(--ai); color: var(--ai); }
-    .disc-btn.active .disc-dot { box-shadow: 0 0 14px currentColor; }
+    .disc-list{list-style:none;margin:0;padding:.5rem 0;flex:1}
+    .disc-btn{width:100%;display:flex;align-items:center;gap:.6rem;padding:.6rem 1rem;background:none;border:none;color:var(--muted);font-family:var(--font-d);font-size:.82rem;font-weight:500;cursor:pointer;transition:background .15s,color .15s;text-align:left;letter-spacing:.02em}
+    .disc-btn:hover{background:rgba(255,255,255,.03);color:var(--ink)}
+    .disc-btn.active{color:var(--ink);background:rgba(255,255,255,.05)}
+    .disc-btn.disabled{opacity:.35;pointer-events:none;cursor:default}
+    .disc-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor}
+    .disc-btn[data-d="philosophy"] .disc-dot{background:var(--philosophy);color:var(--philosophy)}
+    .disc-btn[data-d="math"] .disc-dot{background:var(--math);color:var(--math)}
+    .disc-btn[data-d="physics"] .disc-dot{background:var(--physics);color:var(--physics)}
+    .disc-btn[data-d="chemistry"] .disc-dot{background:var(--chemistry);color:var(--chemistry)}
+    .disc-btn[data-d="biology"] .disc-dot{background:var(--biology);color:var(--biology)}
+    .disc-btn[data-d="geology"] .disc-dot{background:var(--geology);color:var(--geology)}
+    .disc-btn[data-d="ai"] .disc-dot{background:var(--ai);color:var(--ai)}
+    .disc-btn.active .disc-dot{box-shadow:0 0 14px currentColor}
+    .disc-count{margin-left:auto;font-size:.62rem;color:var(--muted);opacity:.6}
+    .disc-soon{font-size:.58rem;color:var(--dim);margin-left:.15rem}
 
-    .disc-count {
-      margin-left: auto;
-      font-size: 0.68rem;
-      color: var(--muted);
-      opacity: 0.7;
-      font-weight: 400;
-    }
+    .sidebar-foot{padding:.7rem 1rem;border-top:1px solid var(--line);font-size:.72rem}
+    .sidebar-foot a{color:var(--muted);text-decoration:none}.sidebar-foot a:hover{color:var(--ink)}
 
-    .sidebar-foot {
-      padding: 0.85rem 1.25rem;
-      border-top: 1px solid var(--line);
-      font-size: 0.75rem;
-    }
-    .sidebar-foot a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .sidebar-foot a:hover { color: var(--ink); }
+    .mobile-bar{display:none;position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:.6rem 1rem;align-items:center;gap:.7rem}
+    @media(max-width:860px){.mobile-bar{display:flex}}
+    .menu-btn{background:none;border:1px solid var(--line2);color:var(--ink);width:34px;height:34px;border-radius:8px;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+    .mobile-bar h2{font-family:var(--font-d);font-size:.88rem;font-weight:600;margin:0}
+    .overlay{display:none;position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.5)}.overlay.show{display:block}
 
-    /* 移动端顶栏 */
-    .mobile-bar {
-      display: none;
-      position: sticky;
-      top: 0;
-      z-index: 9;
-      background: color-mix(in srgb, var(--bg) 90%, transparent);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      padding: 0.65rem 1rem;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    @media (max-width: 860px) {
-      .mobile-bar { display: flex; }
-    }
-    .menu-btn {
-      background: none;
-      border: 1px solid var(--line2);
-      color: var(--ink);
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .mobile-bar h2 {
-      font-family: var(--font-d);
-      font-size: 0.92rem;
-      font-weight: 600;
-      margin: 0;
-      letter-spacing: 0.04em;
-    }
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9;
-      background: rgba(0,0,0,0.5);
-    }
-    .overlay.show { display: block; }
+    .main{min-height:100vh;padding:0 0 4rem}
+    .tl-header{padding:clamp(1.5rem,4vw,2.5rem) clamp(1.25rem,3vw,2rem) clamp(1rem,2vw,1.5rem);border-bottom:1px solid var(--line)}
+    .tl-header h2{font-family:var(--font-d);font-size:clamp(1.5rem,3.5vw,2rem);font-weight:700;margin:0 0 .3rem;letter-spacing:.05em}
+    .tl-header p{color:var(--muted);font-size:.88rem;margin:0;max-width:36rem;line-height:1.55}
 
-    /* ─── 主区域：竖向时间线 ─── */
-    .main {
-      min-height: 100vh;
-      padding: 0 0 4rem;
-    }
+    .tl-wrap{max-width:52rem;margin:0;padding:0 clamp(1rem,3vw,2rem)}
 
-    .tl-header {
-      padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2rem);
-      border-bottom: 1px solid var(--line);
-    }
-    .tl-header h2 {
-      font-family: var(--font-d);
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 700;
-      margin: 0 0 0.35rem;
-      letter-spacing: 0.06em;
-    }
-    .tl-header p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin: 0;
-      max-width: 38rem;
-      line-height: 1.6;
-    }
+    .tl{position:relative;padding:1.5rem 0 2rem 3rem}
+    @media(min-width:640px){.tl{padding-left:3.5rem}}
+    .tl::before{content:"";position:absolute;left:.85rem;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,var(--line2) 2%,var(--line2) 98%,transparent)}
+    @media(min-width:640px){.tl::before{left:1.1rem}}
 
-    .tl-wrap {
-      max-width: 50rem;
-      margin: 0 auto;
-      padding: 0 clamp(1.25rem, 4vw, 3rem);
-    }
+    .tl-node{position:relative;margin-bottom:0;padding:1.35rem 0;border-bottom:1px solid var(--line);animation:fadeUp .4s ease both}
+    .tl-node:last-child{border-bottom:none}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
-    /* 竖向时间线 */
-    .tl {
-      position: relative;
-      padding: 2rem 0 2rem 2.75rem;
-    }
-    @media (min-width: 640px) {
-      .tl { padding-left: 3.5rem; }
-    }
-    .tl::before {
-      content: "";
-      position: absolute;
-      left: 0.85rem;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, transparent, var(--line2) 3%, var(--line2) 97%, transparent);
-    }
-    @media (min-width: 640px) {
-      .tl::before { left: 1.25rem; }
-    }
+    .tl-dot{position:absolute;left:-2.15rem;top:1.65rem;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--line2),0 0 10px color-mix(in srgb,var(--accent) 35%,transparent);z-index:2}
+    @media(min-width:640px){.tl-dot{left:-2.4rem}}
 
-    .tl-node {
-      position: relative;
-      margin-bottom: 0;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--line);
-      animation: fadeUp 0.4s ease both;
-    }
-    .tl-node:last-child { border-bottom: none; }
+    .tl-top{display:flex;gap:1rem;align-items:flex-start}
+    .tl-portrait{width:56px;height:56px;border-radius:10px;background:var(--surface2);border:1px solid var(--line2);flex-shrink:0;object-fit:cover;overflow:hidden}
+    .tl-portrait img{width:100%;height:100%;object-fit:cover;border-radius:9px;opacity:.92}
+    .tl-info{flex:1;min-width:0}
+    .tl-era{display:inline-block;font-family:var(--font-d);font-size:.6rem;font-weight:600;letter-spacing:.1em;padding:.15rem .5rem;border-radius:4px;background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);margin-bottom:.35rem;text-transform:uppercase}
+    .tl-year{font-family:var(--font-d);font-size:.68rem;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:.2rem;text-transform:uppercase}
+    .tl-title{font-family:var(--font-d);font-size:clamp(1rem,2.2vw,1.15rem);font-weight:700;margin:0 0 .1rem;letter-spacing:.01em}
+    .tl-person{font-size:.8rem;color:var(--muted);margin-bottom:.15rem}
+    .tl-work{font-size:.75rem;color:var(--dim);font-style:italic;margin-bottom:.35rem}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .tl-text{font-size:.9rem;color:color-mix(in srgb,var(--ink) 80%,var(--muted));line-height:1.72;max-width:40rem;margin:.25rem 0 0}
 
-    .tl-dot {
-      position: absolute;
-      left: -1.9rem;
-      top: 1.55rem;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 3px solid var(--bg);
-      box-shadow: 0 0 0 1px var(--line2), 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent);
-      z-index: 2;
-    }
-    @media (min-width: 640px) {
-      .tl-dot { left: -2.25rem; }
-    }
+    .tl-quote{margin:.65rem 0 0;padding:.6rem .9rem;border-left:3px solid color-mix(in srgb,var(--accent) 50%,transparent);background:color-mix(in srgb,var(--accent) 5%,transparent);border-radius:0 8px 8px 0;font-family:var(--font-s);font-size:.88rem;line-height:1.65;color:color-mix(in srgb,var(--ink) 90%,var(--accent));font-style:italic}
 
-    .tl-year {
-      font-family: var(--font-d);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
-      text-transform: uppercase;
-    }
-    .tl-title {
-      font-family: var(--font-d);
-      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
-      font-weight: 700;
-      margin: 0 0 0.15rem;
-      letter-spacing: 0.02em;
-    }
-    .tl-person {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .tl-text {
-      font-size: 0.92rem;
-      color: color-mix(in srgb, var(--ink) 82%, var(--muted));
-      line-height: 1.7;
-      max-width: 42rem;
-    }
-
-    .tl-empty {
-      text-align: center;
-      padding: 6rem 2rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    .tl-context{margin:.5rem 0 0;font-size:.78rem;color:var(--dim);line-height:1.55;padding-left:.5rem;border-left:2px solid var(--line)}
   </style>
 </head>
 <body>
@@ -326,220 +112,159 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-head">
         <h1>智识长河</h1>
-        <p>选择一门学科，纵览其思想脉络。</p>
+        <p>选择学科，纵览思想脉络</p>
       </div>
       <ul class="disc-list" id="discList"></ul>
-      <div class="sidebar-foot">
-        <a href="index.html">← 返回主页</a>
-      </div>
+      <div class="sidebar-foot"><a href="index.html">← 返回主页</a></div>
     </aside>
-
     <div class="main" id="main">
       <div class="mobile-bar">
         <button class="menu-btn" id="menuBtn" aria-label="选择学科">☰</button>
         <h2 id="mobileTitle">哲学</h2>
       </div>
-
       <div class="tl-header" id="tlHeader">
         <h2 id="headerTitle">哲学</h2>
         <p id="headerDesc"></p>
       </div>
-
-      <div class="tl-wrap">
-        <div class="tl" id="timeline"></div>
-      </div>
+      <div class="tl-wrap"><div class="tl" id="timeline"></div></div>
     </div>
   </div>
+<script>
+var DISC = {
+  philosophy:{label:"哲学",color:"var(--philosophy)",desc:"从米利都学派到存在主义——人类追问根本问题的持续尝试。"},
+  math:{label:"数学",color:"var(--math)",desc:"从公理化几何到千禧难题——结构、量与无穷的严格语言。"},
+  physics:{label:"物理",color:"var(--physics)",desc:"从杠杆到引力波——用数学把自然写成可预言的方程。"},
+  chemistry:{label:"化学",color:"var(--chemistry)",desc:"从炼金术到分子机器——物质变换的规律与技艺。",disabled:true},
+  biology:{label:"生物",color:"var(--biology)",desc:"从分类到基因编辑——理解生命运作与演化的历程。",disabled:true},
+  geology:{label:"地质年代",color:"var(--geology)",desc:"46 亿年地球史——宙 · 代 · 纪 · 世，从行星吸积到人类世。地质事件与气候变迁如何塑造文明兴衰。"},
+  ai:{label:"人工智能",color:"var(--ai)",desc:"从图灵机到大语言模型——机器智能两百年进化。"}
+};
 
-  <script>
-    var DISC = {
-      philosophy: { label: "哲学", color: "var(--philosophy)", desc: "从米利都学派到存在主义——人类追问根本问题的持续尝试。" },
-      math:       { label: "数学", color: "var(--math)", desc: "从公理化几何到千禧难题——结构、量与无穷的严格语言。" },
-      physics:    { label: "物理", color: "var(--physics)", desc: "从杠杆到引力波——用数学把自然写成可预言的方程。" },
-      chemistry:  { label: "化学", color: "var(--chemistry)", desc: "从炼金术到分子机器——物质变换的规律与技艺。" },
-      biology:    { label: "生物", color: "var(--biology)", desc: "从分类到基因编辑——理解生命运作与演化的历程。" },
-      geology:    { label: "地质年代", color: "var(--geology)", desc: "46 亿年地球史——从行星吸积到智人登场的时间轴。" },
-      ai:         { label: "人工智能", color: "var(--ai)", desc: "从图灵机到大语言模型——机器智能两百年进化。" }
-    };
+var DATA = {
+philosophy:[
+  {year:-585,person:"泰勒斯（Thales）",event:"自然哲学的兴起",text:"以水为万物本原，首次以自然本身（而非神话）解释自然现象，被视为西方哲学与科学思想的共同源头。",work:"无存世著作；思想见于亚里士多德记载",quote:"万物源于水。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Illustrerad_Verldshistoria_band_I_Ill_107.jpg/220px-Illustrerad_Verldshistoria_band_I_Ill_107.jpg",ctx:"同期：毕达哥拉斯建立数本原学说；赫拉克利特提出"万物流变"与逻各斯。"},
+  {year:-470,person:"苏格拉底（Socrates）",event:"诘问法与伦理探究",text:"将哲学焦点从自然转向人自身——概念澄清、伦理审查与「认识你自己」。其方法深刻影响柏拉图与整个欧陆传统。",work:"自己不著述；学说见于柏拉图对话录与色诺芬记录",quote:"未经审视的人生不值得过。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/220px-Socrate_du_Louvre.jpg",ctx:"公元前 399 年被雅典以「腐蚀青年」罪判处死刑，饮鸩而亡——成为哲学殉道的经典形象。"},
+  {year:-387,person:"柏拉图（Plato）",event:"学园与理念论",text:"在雅典创立学园（Academia），提出理念论（Forms）：可感事物是永恒理念的摹本。《理想国》构建了哲人王治国的政治蓝图。",work:"《理想国》《会饮篇》《斐多篇》等",quote:"洞穴中的囚徒把影子当作真实。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Plato_Silanion_Musei_Capitolini_MC1377.jpg/220px-Plato_Silanion_Musei_Capitolini_MC1377.jpg",ctx:"学园存续近九百年，是西方最早的高等教育机构。"},
+  {year:-335,person:"亚里士多德（Aristotle）",event:"逻辑学与多领域体系",text:"建立三段论形式逻辑、形而上学范畴、伦理学与博物学框架；其思想支配中世纪欧洲与伊斯兰学术近千年。",work:"《工具论》《形而上学》《尼各马可伦理学》",quote:"吾爱吾师，吾更爱真理。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/220px-Aristotle_Altemps_Inv8575.jpg",ctx:"曾为亚历山大大帝的私人教师；其逻辑体系直到 19 世纪才被弗雷格的数理逻辑根本性拓展。"},
+  {year:354,person:"奥古斯丁（Augustine）",event:"时间与神义问题",text:"内心转向：「时间是什么？若无人问我则知；若要向人解释则不知。」自由意志与恶的起源，融合新柏拉图主义与基督教神学。",work:"《忏悔录》《上帝之城》",quote:"主啊，你为自己造了我们，我们的心得不到安宁，直到它安息在你怀中。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg/220px-Saint_Augustine_by_Philippe_de_Champaigne.jpg"},
+  {year:1250,person:"托马斯·阿奎那（Aquinas）",event:"经院哲学综合",text:"系统融合亚里士多德哲学与基督教教义，五路论证上帝存在，影响自然法思想与后世形而上学。",work:"《神学大全》《反异教大全》",quote:"对于不具信仰者，须诉诸理性。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/St-thomas-aquinas.jpg/220px-St-thomas-aquinas.jpg"},
+  {year:1641,person:"笛卡尔（Descartes）",event:"《第一哲学沉思》",text:"方法论怀疑与「我思故我在」——开创近代主体性哲学与理性主义。心身二元论影响后世身心问题讨论。",work:"《第一哲学沉思》《方法论》",quote:"我思故我在（Cogito, ergo sum）。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/220px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",ctx:"同期在数学上创立解析几何（坐标系），连接代数与几何。"},
+  {year:1689,person:"洛克（Locke）",event:"经验论与政治哲学",text:"心灵初始为「白板」，一切观念来自经验。自然权利（生命、自由、财产）思想深刻影响美国独立宣言与启蒙运动。",work:"《人类理解论》《政府论》",quote:"凡在理智中的，无一不先在感官中。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/JohnLocke.png/220px-JohnLocke.png"},
+  {year:1781,person:"康德（Kant）",event:"《纯粹理性批判》",text:"先验观念论与认识论转向：人的认知不是被动接受而是主动构建经验；划定理性边界，把自在之物（物自体）置于认识之外。",work:"三大批判：《纯粹理性批判》《实践理性批判》《判断力批判》",quote:"有两样东西越思考越令我敬畏：头顶的星空和心中的道德律。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Kant_gemaelde_3.jpg/220px-Kant_gemaelde_3.jpg",ctx:"康德终生未离开柯尼斯堡；其哲学被称为「哥白尼式革命」。"},
+  {year:1843,person:"克尔凯郭尔（Kierkegaard）",event:"实存哲学先声",text:"提出「信仰之跃」：理性终有极限，真理在个人决断中承担而非体系里获证。美学—伦理—宗教三阶段勾勒人生的纵深。",work:"《恐惧与颤栗》《非此即彼》《致死的疾病》",quote:"真理即主体性——唯有与个体生存攸关的真理才是属于我的真理。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Kierkegaard.jpg/220px-Kierkegaard.jpg",ctx:"被视为基督教存在主义与实存哲学的先驱，直接影响海德格尔和萨特。"},
+  {year:1872,person:"尼采（Nietzsche）",event:"《悲剧的诞生》",text:"以日神（阿波罗）/酒神（狄奥尼索斯）对立解释希腊悲剧精神，反对苏格拉底以降的理性乐观主义。",work:"《悲剧的诞生》",quote:"每一个不曾起舞的日子，都是对生命的辜负。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/220px-Nietzsche187a.jpg"},
+  {year:1882,person:"尼采（Nietzsche）",event:"「上帝已死」",text:"借疯子之口宣告欧洲道德根基动摇：若上帝已死，人须自铸价值。同期提出永恒轮回：若一切重演，你是否仍愿如此生活？",work:"《快乐的科学》第 125 节",quote:"上帝已死。上帝仍然是死的。是我们杀死了他。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/220px-Nietzsche187a.jpg"},
+  {year:1883,person:"尼采（Nietzsche）",event:"《查拉图斯特拉如是说》",text:"以诗性箴言体提出超人（Übermensch）、末人、权力意志。「成为你所是」与对怜悯伦理的批判。",work:"《查拉图斯特拉如是说》",quote:"人是在动物与超人之间的一根绳索——悬在深渊之上。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/220px-Nietzsche187a.jpg"},
+  {year:1887,person:"尼采（Nietzsche）",event:"《论道德的谱系》",text:"以系谱学方法区分主人道德与奴隶道德，揭示怨恨如何翻转价值。为福柯的权力—知识分析提供方法论灵感。",work:"《论道德的谱系》",quote:"与恶龙缠斗过久，自身亦成为恶龙；凝视深渊过久，深渊亦回以凝视。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/220px-Nietzsche187a.jpg"},
+  {year:1900,person:"胡塞尔（Husserl）",event:"现象学的开创",text:"回到「事物本身」：通过本质直观与意向性分析描述意识结构。海德格尔、萨特等人的实存论路径由此而出。",work:"《逻辑研究》《纯粹现象学通论》",quote:"回到事物本身（Zu den Sachen selbst）。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Edmund_Husserl_1900.jpg/220px-Edmund_Husserl_1900.jpg"},
+  {year:1922,person:"维特根斯坦（Wittgenstein）",event:"《逻辑哲学论》",text:"可说的与不可说的：语言是世界的逻辑图像。后期《哲学研究》转向语言游戏说，解构了自己的早期体系。",work:"《逻辑哲学论》《哲学研究》",quote:"凡不可言说者，必须保持沉默。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Ludwig_Wittgenstein.jpg/220px-Ludwig_Wittgenstein.jpg"},
+  {year:1927,person:"海德格尔（Heidegger）",event:"《存在与时间》",text:"以「此在」（Dasein）追问存在意义：人是被抛入世界的操心者，向死而在逼出本真的自我筹划。20 世纪欧陆哲学里程碑。",work:"《存在与时间》",quote:"人是向死的存在（Sein zum Tode）。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Heidegger_4_%281960%29_cropped.jpg/220px-Heidegger_4_%281960%29_cropped.jpg",ctx:"胡塞尔的学生与助手；二战期间与纳粹的关系至今仍有争议。"},
+  {year:1942,person:"加缪（Camus）",event:"《西西弗神话》",text:"荒谬：人对意义的渴求与世界沉默之间的断裂。结论不是自杀，而是「应当想象西西弗是快乐的」——反抗与清醒。",work:"《西西弗神话》《局外人》《鼠疫》",quote:"应当想象西西弗是快乐的。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg/220px-Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg",ctx:"1957 年获诺贝尔文学奖；与萨特就存在主义与政治暴力问题公开决裂。"},
+  {year:1943,person:"萨特（Sartre）",event:"《存在与虚无》",text:"自为存在不断否定既成所是——「人被判定为自由」。自在/自为、自欺（mauvaise foi）、他人即地狱。",work:"《存在与虚无》《恶心》",quote:"人被判定为自由——因为人一旦被抛入世界，就必须为所做一切负责。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Sartre_1967_crop.jpg/220px-Sartre_1967_crop.jpg"},
+  {year:1946,person:"萨特（Sartre）",event:"《存在主义是一种人道主义》",text:"面向公众的宣言：「存在先于本质」——人没有预设本质，通过选择与行动自我定义。通俗化存在主义，亦引发哲学争议。",work:"演讲稿《存在主义是一种人道主义》",quote:"存在先于本质（L'existence précède l'essence）。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Sartre_1967_crop.jpg/220px-Sartre_1967_crop.jpg"},
+  {year:1949,person:"波伏娃（de Beauvoir）",event:"《第二性》",text:"「女人不是天生的，而是被塑造成的」——以存在主义伦理审视性别与处境，把「他者」分析引入女性主义经典。",work:"《第二性》《暧昧的伦理》",quote:"女人不是天生的，而是被塑造成的（On ne naît pas femme, on le devient）。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Simone_de_Beauvoir2.png/220px-Simone_de_Beauvoir2.png"},
+  {year:1967,person:"福柯（Foucault）",event:"知识考古与话语分析",text:"权力—知识关系与历史断裂视角：知识不是中立的发现，而是权力关系的产物。拓展哲学与社会理论的交叉。",work:"《词与物》《规训与惩罚》《知识考古学》",quote:"哪里有权力，哪里就有抵抗。",img:"https://upload.wikimedia.org/wikipedia/en/thumb/3/37/Foucault5.jpg/220px-Foucault5.jpg",ctx:"承接尼采系谱学方法；其「全景监狱」分析深刻影响当代监控社会讨论。"}
+],
+math:[
+  {year:-300,person:"欧几里得（Euclid）",event:"《几何原本》",text:"从五条公设出发演绎全部平面几何，成为公理化方法的典范，影响数学严格性标准两千余年。",work:"《几何原本》共十三卷",quote:"在几何中没有专为国王开辟的道路。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Euklid-von-Alexandria_1.jpg/220px-Euklid-von-Alexandria_1.jpg",ctx:"亚历山大图书馆学者；其公理体系直到 19 世纪非欧几何出现才被根本性拓展。"},
+  {year:250,person:"丢番图（Diophantus）",event:"《算术》",text:"系统研究不定方程（整数解），衔接古代算术与近代数论。后世以「丢番图方程」命名此类问题。",work:"《算术》共十三卷（仅存六卷）",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Diophantus-cover.jpg/220px-Diophantus-cover.jpg",ctx:"费马在他的《算术》副本边上写下了著名的「费马大定理」批注。"},
+  {year:820,person:"花拉子米（Al-Khwarizmi）",event:"代数学的系统阐述",text:"系统化一次与二次方程的解法流程。「algorithm」一词源于其拉丁译名，「algebra」源于书名 al-jabr。",work:"《还原与对消计算概论》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Khwarizmi_Amirkabir_University_of_Technology.png/220px-Khwarizmi_Amirkabir_University_of_Technology.png",ctx:"巴格达智慧宫学者；同期印度—阿拉伯数字体系经此传入欧洲。"},
+  {year:1637,person:"笛卡尔（Descartes）",event:"解析几何",text:"用坐标系把几何图形翻译成代数方程，统一几何与代数两大传统，为微积分铺路。",work:"《几何学》（作为《方法论》附录）",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg/220px-Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",ctx:"笛卡尔坐标系即以他命名；同期费马也独立发展了类似思想。"},
+  {year:1684,person:"牛顿 / 莱布尼茨",event:"微积分发表",text:"变化率（微分）与累积（积分）的无穷小演算——成为整个科学建模的核心语言。两人各自独立发明并引发优先权之争。",work:"牛顿《自然哲学的数学原理》/ 莱布尼茨1684年论文",quote:"如果我比别人看得更远，那是因为我站在巨人的肩膀上。——牛顿",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Portrait_of_Sir_Isaac_Newton%2C_1689.jpg/220px-Portrait_of_Sir_Isaac_Newton%2C_1689.jpg"},
+  {year:1820,person:"伽罗瓦（Galois）",event:"群论与根式可解性",text:"用对称群刻画方程根式可解性，开创近世代数。证明五次及以上一般方程无根式解——阿贝尔-伽罗瓦定理。",work:"手稿（决斗前夜整理）",quote:"我没有时间了。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Evariste_galois.jpg/220px-Evariste_galois.jpg",ctx:"20 岁在决斗中身亡；前夜书信中整理的手稿成为现代代数的基石。"},
+  {year:1900,person:"希尔伯特（Hilbert）",event:"巴黎 23 个数学问题",text:"在国际数学家大会上提出 23 个未解问题，为 20 世纪数学划定研究议程——从连续统假设到黎曼猜想。",work:"1900 年巴黎演讲",quote:"我们必须知道，我们必将知道（Wir müssen wissen, wir werden wissen）。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Hilbert.jpg/220px-Hilbert.jpg",ctx:"其中部分问题至今未解（如黎曼猜想）；哥德尔 1931 年证明了希尔伯特纲领的核心目标不可实现。"},
+  {year:1931,person:"哥德尔（Gödel）",event:"不完备定理",text:"任何足够强的一致形式系统中，都存在既不可证明也不可反驳的真命题——数学基础观的根本震动。",work:"《论〈数学原理〉及有关系统的形式不可判定命题》",quote:"在一个系统内部无法证明该系统自身的一致性。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Kurt_g%C3%B6del.jpg/220px-Kurt_g%C3%B6del.jpg",ctx:"直接终结了希尔伯特「用有穷方法证明数学一致性」的计划。"},
+  {year:1994,person:"安德鲁·怀尔斯（Wiles）",event:"费马大定理",text:"证明 x^n + y^n = z^n 在 n≥3 时无正整数解——费马 1637 年写在书页边上的猜想，历经 350 余年终获证。",work:"论文《模椭圆曲线与费马大定理》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Andrew_wiles1-3.jpg/220px-Andrew_wiles1-3.jpg",ctx:"证明核心是联系椭圆曲线与模形式的谷山—志村猜想（部分情形）。"},
+  {year:2003,person:"佩雷尔曼（Perelman）",event:"庞加莱猜想",text:"用里奇流方法证明任何单连通闭三维流形同胚于三维球面。克雷研究所千禧难题之一，但他拒绝了百万美元奖金。",work:"三篇 arXiv 预印本",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Perelman%2C_Grigori_%281966%29.jpg/220px-Perelman%2C_Grigori_%281966%29.jpg",ctx:"拒绝菲尔兹奖与千禧年奖金，回归隐居生活——数学界最著名的隐士。"}
+],
+physics:[
+  {year:-240,person:"阿基米德（Archimedes）",event:"浮力与杠杆",text:"发现浮力定律与杠杆原理，将数学证明引入力学研究——实验与推理结合的古代物理高峰。",work:"《论浮体》《论平面图形的平衡》",quote:"给我一个支点，我就能撬起整个地球。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Domenico-Fetti_Archimedes_1620.jpg/220px-Domenico-Fetti_Archimedes_1620.jpg"},
+  {year:1543,person:"哥白尼（Copernicus）",event:"日心说《天体运行论》",text:"提出太阳而非地球处于宇宙中心，拉开从地心到日心宇宙图景转变的序幕，为开普勒与伽利略铺路。",work:"《天体运行论》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Nikolaus_Kopernikus.jpg/220px-Nikolaus_Kopernikus.jpg",ctx:"此书在临终前出版；其后伽利略因支持日心说遭教会审判（1633）。"},
+  {year:1687,person:"牛顿（Newton）",event:"《自然哲学的数学原理》",text:"万有引力与运动三定律——经典力学统一框架，将地上与天上的运动统一于同一套数学法则。",work:"《自然哲学的数学原理》（Principia）",quote:"如果我比别人看得更远，那是因为我站在巨人的肩膀上。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Portrait_of_Sir_Isaac_Newton%2C_1689.jpg/220px-Portrait_of_Sir_Isaac_Newton%2C_1689.jpg",ctx:"同期独立发明微积分（与莱布尼茨）；其力学体系统治物理学超过两百年，直至相对论。"},
+  {year:1865,person:"麦克斯韦（Maxwell）",event:"麦克斯韦方程组",text:"四个方程统一电、磁与光——预言电磁波的存在。赫兹 1887 年实验验证，直接导向无线电与现代通信。",work:"《电磁场的动力学理论》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/James_Clerk_Maxwell.png/220px-James_Clerk_Maxwell.png",ctx:"爱因斯坦称此为「自牛顿以来物理学最深刻的变革」。"},
+  {year:1905,person:"爱因斯坦（Einstein）",event:"奇迹年：狭义相对论与光量子",text:"狭义相对论：时空同时性相对化，E=mc²；光电效应论文引入光量子概念，为量子力学奠基。一年内发表四篇改变物理学的论文。",work:"《论运动物体的电动力学》《关于光的产生和转化》等",quote:"想象力比知识更重要。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",ctx:"时年 26 岁，还是伯尔尼专利局的三等技术审查员。"},
+  {year:1915,person:"爱因斯坦（Einstein）",event:"广义相对论",text:"引力不是力，而是时空弯曲。成功解释水星近日点进动，预言光线弯曲（1919 年日食验证）和引力波（2015 年 LIGO 验证）。",work:"《广义相对论的基础》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",ctx:"爱丁顿 1919 年日食观测验证了光线弯曲预言——爱因斯坦一夜成为全球名人。"},
+  {year:1926,person:"玻尔 / 海森堡 / 薛定谔等",event:"量子力学完整表述",text:"海森堡矩阵力学 + 薛定谔波动方程：微观世界以概率幅描述。不确定性原理揭示观测的根本极限。",work:"海森堡 1925 年论文 / 薛定谔 1926 年系列论文",quote:"任何不为量子力学感到震惊的人，是还没理解它。——玻尔",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Niels_Bohr.jpg/220px-Niels_Bohr.jpg",ctx:"1927 年索尔维会议上爱因斯坦与玻尔展开量子力学诠释的世纪辩论。"},
+  {year:1948,person:"费曼 / 施温格 / 朝永",event:"量子电动力学（QED）重整化",text:"系统处理量子场论中的无穷大问题。QED 对电子反常磁矩的预言精确到小数点后十位——人类历史上最精确的物理理论。",work:"费曼路径积分、费曼图",quote:"如果你以为自己理解了量子力学，那你就不理解量子力学。——费曼",img:"https://upload.wikimedia.org/wikipedia/en/thumb/4/42/Richard_Feynman_Nobel.jpg/220px-Richard_Feynman_Nobel.jpg"},
+  {year:2012,person:"CERN ATLAS / CMS",event:"希格斯玻色子发现",text:"大型强子对撞机（LHC）实验验证了标准模型中电弱对称破缺的质量机制——粒子物理最后一块拼图。",work:"ATLAS 与 CMS 合作组论文",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Peter_Higgs_Nobel_2013.jpg/220px-Peter_Higgs_Nobel_2013.jpg",ctx:"希格斯与恩格勒于 2013 年因此获诺贝尔物理学奖；LHC 是人类建造的最大科学仪器。"},
+  {year:2015,person:"LIGO / Virgo 合作组",event:"引力波直接探测",text:"首次探测到两个黑洞并合产生的时空涟漪——爱因斯坦 1915 年的预言在整整一百年后得到验证。打开引力波天文学观测窗口。",work:"《GW150914 观测报告》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Gravitational_wave_observation.png/220px-Gravitational_wave_observation.png",ctx:"基普·索恩、雷纳·韦斯、巴里·巴里什于 2017 年获诺贝尔物理学奖。"}
+],
+geology:[
+  {year:-4560,era:"冥古宙 Hadean",person:"行星吸积",event:"地球形成",geo:"约 45.6 亿年前",text:"太阳星云中尘粒经数百万年碰撞吸积形成原地球。初始表面为炽热岩浆海洋，大气以二氧化碳和水蒸气为主，尚无固态地壳。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/220px-The_Earth_seen_from_Apollo_17.jpg",ctx:"宙（Eon）是地质年代最大的划分单位。冥古宙得名于希腊冥界之神哈迪斯（Hades），喻指当时地球的炼狱般环境。"},
+  {year:-4500,era:"冥古宙 Hadean",person:"忒伊亚假说",event:"月球诞生",geo:"约 45 亿年前",text:"一颗火星大小的原行星忒伊亚（Theia）斜撞原地球，喷溅碎片在轨道上凝聚形成月球。这次巨大撞击也使地球自转轴倾斜约 23.5°，为后来的季节变化埋下伏笔。"},
+  {year:-4400,era:"冥古宙 Hadean",person:"杰克山锆石证据",event:"最古老地壳与液态水",geo:"约 44 亿年前",text:"澳大利亚杰克山发现的锆石晶体（铀铅定年 44 亿年）氧同位素比值暗示当时已有液态水和固态地壳——地球比过去认为的更早冷却下来。",ctx:"冥古宙（46-40 亿年前）几乎无完整岩石记录留存，信息来自零星矿物碎片与月球样品的间接推断。"},
 
-    var DATA = {
-      philosophy: [
-        { year: -585, person: "泰勒斯等（米利都学派）", event: "自然哲学的兴起", text: "以自然本身解释自然现象，被视为西方哲学与科学思想的共同源头之一。" },
-        { year: -470, person: "苏格拉底（Socrates）", event: "诘问法与伦理探究", text: "将哲学焦点转向概念澄清与「认识你自己」，深刻影响柏拉图与整个欧陆传统。" },
-        { year: -387, person: "柏拉图（Plato）", event: "学园与传统形而上学", text: "理念论、国家与灵魂学说；其对话体成为哲学教育的范本。" },
-        { year: -335, person: "亚里士多德（Aristotle）", event: "逻辑学与多领域体系", text: "形式逻辑、形而上学、伦理学与博物学框架，中世纪与近代学术长期受其范畴支配。" },
-        { year: 354, person: "奥古斯丁（Augustine）", event: "时间与神义问题", text: "内心转向、自由意志与恶的问题，融合希腊哲学与基督教神学。" },
-        { year: 1250, person: "托马斯·阿奎那（Aquinas）", event: "经院哲学综合", text: "亚里士多德与基督教教义的系统结合，影响自然法与后世形而上学讨论。" },
-        { year: 1641, person: "笛卡尔（Descartes）", event: "《第一哲学沉思》", text: "方法论怀疑与「我思」起点，开创近代主体性哲学与理性主义。" },
-        { year: 1689, person: "洛克（Locke）", event: "经验论与政治哲学", text: "观念来源的经验说明；自然权利思想影响启蒙与宪政讨论。" },
-        { year: 1781, person: "康德（Kant）", event: "《纯粹理性批判》", text: "先验观念论与认识论转向，划定理性边界并重塑伦理与美学的基础。" },
-        { year: 1843, person: "克尔凯郭尔（Kierkegaard）", event: "《恐惧与颤栗》等", text: "提出「信仰之跃」与美学—伦理—宗教三阶段；强调个体在上帝面前的绝对责任，被视为基督教存在主义与实存哲学的先声。名言式命题：「真理即主体性」——真理不在体系而在个人决断中的承担。" },
-        { year: 1872, person: "尼采（Nietzsche）", event: "《悲剧的诞生》", text: "以日神/酒神解释希腊悲剧精神，反对苏格拉底以降的理性乐观主义，为后来的价值重估与生命哲学埋伏笔。" },
-        { year: 1882, person: "尼采（Nietzsche）", event: "《快乐的科学》与「上帝已死」", text: "第五卷补遗中借疯子之口宣告「上帝已死」：欧洲道德根基动摇，人须自铸价值。同一时期提出永恒轮回的思想实验，追问：若一切重演，你是否仍愿如此生活？" },
-        { year: 1883, person: "尼采（Nietzsche）", event: "《查拉图斯特拉如是说》", text: "以诗性箴言体提出超人（Übermensch）、末人、权力意志；「成为你所是」与对怜悯伦理的批判，深刻影响文学、心理学与后现代伦理讨论。" },
-        { year: 1887, person: "尼采（Nietzsche）", event: "《论道德的谱系》", text: "以系谱学方法区分主人道德与奴隶道德，揭示怨恨（ressentiment）如何翻转价值；为福柯等人的权力—知识分析提供方法论灵感。" },
-        { year: 1900, person: "胡塞尔（Husserl）", event: "《逻辑研究》", text: "开创现象学：回到「事物本身」，通过本质直观与意向性分析描述意识结构。海德格尔、萨特等人的实存/生存论路径多由此出。" },
-        { year: 1922, person: "维特根斯坦（Wittgenstein）", event: "《逻辑哲学论》", text: "语言界限与图像论，推动分析哲学与逻辑语义学发展。" },
-        { year: 1927, person: "海德格尔（Heidegger）", event: "《存在与时间》", text: "以「此在」（Dasein）追问存在意义：操心、向死而在、本真与非本真；时间性为理解存在的境域。此书被视为 20 世纪欧陆哲学的里程碑，亦深刻影响萨特的存在主义表述。" },
-        { year: 1942, person: "加缪（Camus）", event: "《西西弗神话》", text: "提出「荒谬」：人对意义的渴求与世界沉默之间的断裂；结论不是自杀而是「应当想象西西弗是快乐的」——在无神论下坚持反抗与清醒。与萨特论战「是否必为存在主义者」。" },
-        { year: 1943, person: "萨特（Sartre）", event: "《存在与虚无》", text: "系统阐述自由与责任：意识是「自为存在」，不断否定既成所是；「人被判定为自由」。关键区分自在/自为、自欺（mauvaise foi）；他人即地狱指向主体间承认的困难。" },
-        { year: 1946, person: "萨特（Sartre）", event: "《存在主义是一种人道主义》", text: "面向公众的宣言：「存在先于本质」——人没有预先被规定的本质，通过选择与行动自我定义；强调人不能逃避对自我与他人的责任。此文通俗化存在主义，亦引发「是否仍人道主义」的哲学争议。" },
-        { year: 1949, person: "波伏娃（de Beauvoir）", event: "《第二性》", text: "名言：「女人不是天生的，而是被塑造成的」；以存在主义伦理审视性别与处境，把「他者」分析引入女性主义经典，与萨特哲学形成对话与修正。" },
-        { year: 1967, person: "福柯（Foucault）等", event: "知识考古与话语分析", text: "权力—知识关系与历史断裂视角，拓展哲学与社会理论的交叉。" }
-      ],
-      math: [
-        { year: -300, person: "欧几里得（Euclid）", event: "《几何原本》", text: "公理化几何典范，影响数学严格性标准两千余年。" },
-        { year: 250, person: "丢番图（Diophantus）", event: "《算术》", text: "不定方程与代数思想，衔接古代算术与近代数论。" },
-        { year: 820, person: "花拉子米（Al-Khwarizmi）", event: "代数学的系统阐述", text: "一次与二次方程算法化；algorithm 一词源于其名。" },
-        { year: 1637, person: "笛卡尔（Descartes）", event: "解析几何", text: "坐标统一几何与代数，为微积分铺路。" },
-        { year: 1684, person: "牛顿 / 莱布尼茨", event: "微积分发表", text: "变化率与累积的无穷小演算，成为科学建模核心语言。" },
-        { year: 1820, person: "伽罗瓦（Galois）", event: "群论与根式可解性", text: "对称结构进入方程理论，开创抽象代数方向。" },
-        { year: 1900, person: "希尔伯特（Hilbert）", event: "23 个数学问题", text: "为 20 世纪数学设定研究议程。" },
-        { year: 1931, person: "哥德尔（Gödel）", event: "不完备定理", text: "形式系统内不可判定命题的存在，重塑数学基础观。" },
-        { year: 1994, person: "怀尔斯（Wiles）等", event: "费马大定理", text: "椭圆曲线与模形式深度联系，数论里程碑。" },
-        { year: 2003, person: "佩雷尔曼（Perelman）", event: "庞加莱猜想", text: "里奇流与三维拓扑，克雷研究所千禧难题之一获解。" }
-      ],
-      physics: [
-        { year: -240, person: "阿基米德（Archimedes）", event: "浮力与杠杆", text: "静力学与流体静力学经典定律。" },
-        { year: 1543, person: "哥白尼（Copernicus）", event: "日心说《天体运行论》", text: "宇宙图景从地心向日心转变的关键一步。" },
-        { year: 1687, person: "牛顿（Newton）", event: "《自然哲学的数学原理》", text: "万有引力与运动定律，经典力学统一框架。" },
-        { year: 1865, person: "麦克斯韦（Maxwell）", event: "麦克斯韦方程组", text: "电磁场统一，预言电磁波。" },
-        { year: 1905, person: "爱因斯坦（Einstein）", event: "狭义相对论", text: "时空相对性与质能关系。" },
-        { year: 1915, person: "爱因斯坦（Einstein）", event: "广义相对论", text: "引力几何化，宇宙学与引力波的理论基础。" },
-        { year: 1926, person: "玻尔、海森堡、薛定谔等", event: "量子力学完整表述", text: "微观世界概率幅与算符形式。" },
-        { year: 1948, person: "费曼 / 施温格 / 朝永", event: "量子电动力学重整化", text: "量子场论计算与实验精确吻合的范式。" },
-        { year: 2012, person: "CERN ATLAS/CMS", event: "希格斯玻色子", text: "标准模型电弱对称破缺机制的实验验证。" },
-        { year: 2015, person: "LIGO / Virgo", event: "引力波直接探测", text: "打开引力波天文学观测窗口。" }
-      ],
-      chemistry: [
-        { year: -400, person: "留基伯 / 德谟克利特", event: "原子观念（哲学层面）", text: "物质离散性的古老直觉，近代原子论的思想先驱。" },
-        { year: 1661, person: "波义耳（Boyle）", event: "《怀疑的化学家》", text: "元素概念与实验化学方法论，化学逐渐独立于炼金术叙事。" },
-        { year: 1774, person: "拉瓦锡（Lavoisier）", event: "氧化说与质量守恒", text: "近代化学革命：精确称量与燃烧理论的改写。" },
-        { year: 1803, person: "道尔顿（Dalton）", event: "原子论与倍比定律", text: "定量原子假说，连接化学反应的整数比规律。" },
-        { year: 1869, person: "门捷列夫（Mendeleev）", event: "元素周期律", text: "性质随原子量（后修正为原子序）周期重复，预言新元素。" },
-        { year: 1874, person: "范托夫 / 勒贝尔", event: "碳四面体与立体化学", text: "分子三维结构与旋光异构的理解。" },
-        { year: 1926, person: "薛定谔方程在化学中的应用", event: "量子化学开端", text: "化学键与分子轨道可由量子力学计算。" },
-        { year: 1953, person: "齐格勒—纳塔等", event: "定向聚合催化剂", text: "塑料与高分子工业的关键催化体系。" },
-        { year: 1985, person: "克罗托 / 斯莫利等", event: "富勒烯 C₆₀", text: "新型碳同素异形体，开启纳米碳材料研究。" },
-        { year: 2016, person: "法林加等", event: "分子机器（诺奖）", text: "可控分子马达与开关，化学迈向微观机器。" }
-      ],
-      biology: [
-        { year: -350, person: "亚里士多德等", event: "动物志与分类雏形", text: "系统观察生命现象的早期综合。" },
-        { year: 1543, person: "维萨里（Vesalius）", event: "《人体构造》", text: "解剖学基于实证观察的复兴。" },
-        { year: 1628, person: "哈维（Harvey）", event: "血液循环", text: "实验生理学的重要范例。" },
-        { year: 1735, person: "林奈（Linnaeus）", event: "双名法与分类体系", text: "生物命名与层级分类的国际传统基础。" },
-        { year: 1859, person: "达尔文（Darwin）", event: "《物种起源》", text: "自然选择解释物种多样性，统一生物学史观。" },
-        { year: 1865, person: "孟德尔（Mendel）", event: "遗传定律（后重新发现）", text: "离散遗传因子思想，为基因概念奠基。" },
-        { year: 1953, person: "沃森 / 克里克等", event: "DNA 双螺旋", text: "遗传信息分子载体与复制机制的结构基础。" },
-        { year: 1977, person: "桑格（Sanger）等", event: "DNA 测序方法", text: "基因组时代的技术前提。" },
-        { year: 2003, person: "人类基因组计划", event: "人类基因组草图", text: "大规模遗传信息参考，推动精准医学与演化研究。" },
-        { year: 2012, person: "杜德纳 / 沙尔庞捷等", event: "CRISPR-Cas9 基因编辑", text: "可编程核酸酶，革命性改造生命科学研究与应用边界。" }
-      ],
-      geology: [
-        { year: -4560, person: "行星吸积（主流模型）", event: "地球形成", text: "由原行星盘物质吸积；后期大碰撞假说解释月球起源。", geo: "45.6 亿年前" },
-        { year: -4400, person: "锆石同位素记录", event: "最古老地壳碎片", text: "暗示早期已有固态地壳与水圈相互作用线索。", geo: "44 亿年前" },
-        { year: -4000, person: "晚期重轰炸衰退", event: "宜居窗口逐步打开", text: "撞击通量下降有利于海洋与化学演化稳定。", geo: "40 亿年前" },
-        { year: -3500, person: "叠层石等证据", event: "早期生命活动痕迹", text: "微生物席与光合作用前体推动生物圈扩张。", geo: "35 亿年前" },
-        { year: -2400, person: "大氧化事件", event: "大气氧显著上升", text: "改变元素循环与矿物沉积，为复杂代谢铺路。", geo: "24 亿年前" },
-        { year: -541, person: "化石记录", event: "寒武纪生命大爆发", text: "主要动物门类在相对短时间内出现，生态系统复杂化。", geo: "5.41 亿年前" },
-        { year: -375, person: "肉鳍鱼等", event: "登陆与四足类起源", text: "脊椎动物向陆地拓展的关键演化支。", geo: "3.75 亿年前" },
-        { year: -252, person: "生物圈", event: "二叠纪末大灭绝", text: "最大规模物种损失之一，重塑中生代生态位。", geo: "2.52 亿年前" },
-        { year: -66, person: "希克苏鲁伯撞击等", event: "白垩纪末大灭绝", text: "非鸟恐龙灭绝，哺乳动物辐射机遇。", geo: "6600 万年前" },
-        { year: -2.6, person: "国际年代地层表", event: "第四纪冰期旋回", text: "冰川进退塑造现代地貌与人类迁徙背景。", geo: "260 万年前" },
-        { year: -0.3, person: "古人类学与遗传学", event: "智人崛起", text: "工具、语言与文化在全新世加速改变地表系统。", geo: "约 30 万年前" }
-      ],
-      ai: [
-        { year: 1843, person: "巴贝奇 / 洛夫莱斯", event: "分析机与程序思想", text: "通用计算与算法的早期想象。" },
-        { year: 1936, person: "图灵（Turing）", event: "图灵机", text: "可计算性的数学定义。" },
-        { year: 1943, person: "麦卡洛克 / 皮茨", event: "人工神经元模型", text: "将逻辑与神经活动数学化。" },
-        { year: 1948, person: "香农（Shannon）", event: "通信的数学理论", text: "信息熵与信道容量，数字通信基石。" },
-        { year: 1950, person: "图灵（Turing）", event: "《计算机器与智能》", text: "图灵测试与机器智能议题的公开表述。" },
-        { year: 1956, person: "麦卡锡、明斯基等", event: "达特茅斯会议", text: "「人工智能」名称确立，学科自觉诞生。" },
-        { year: 1957, person: "罗森布拉特（Rosenblatt）", event: "感知机", text: "可学习分类器与神经网络第一次浪潮。" },
-        { year: 1965, person: "费根鲍姆等", event: "专家系统 DENDRAL", text: "知识工程与规则推理实用化。" },
-        { year: 1986, person: "鲁梅尔哈特等", event: "反向传播普及", text: "多层网络有效训练，深度学习先声。" },
-        { year: 1997, person: "IBM Deep Blue", event: "国际象棋人机对决", text: "专用搜索与硬件在完备信息博弈中的胜利。" },
-        { year: 2012, person: "辛顿团队（AlexNet）", event: "ImageNet 突破", text: "深度卷积网络在视觉上的产业级转折。" },
-        { year: 2017, person: "Vaswani 等", event: "Transformer", text: "自注意力成为大模型主干架构。" },
-        { year: 2022, person: "OpenAI 等", event: "ChatGPT 普及", text: "大语言模型进入日常应用，重塑人机交互。" }
-      ]
-    };
+  {year:-4000,era:"太古宙 Archean",person:"晚期重轰炸衰退",event:"宜居窗口打开",geo:"约 40 亿年前",text:"小行星撞击通量下降，海洋逐渐稳定。大气中无游离氧，还原性环境下有机分子开始累积——生命的化学前奏在深海热液喷口与浅海之间展开。",ctx:"太古宙跨度从 40 亿年到 25 亿年前。当时地表温度可能高达 70°C，海洋呈绿色（富含二价铁离子）。"},
+  {year:-3500,era:"太古宙 Archean",person:"叠层石化石记录",event:"最早的生命痕迹——蓝藻登场",geo:"约 35 亿年前",text:"澳大利亚皮尔巴拉与南非巴伯顿发现叠层石——由蓝细菌（蓝藻）层层堆叠的微生物礁体。光合作用在此时已经出现，缓慢释放氧气，但大气仍几乎无氧。",ctx:"最早的生命证据仍有争议，碳同位素信号可能追溯到 38-42 亿年前。原始生命究竟起源于深海热液喷口还是浅海温泉池，至今仍是激烈辩论的前沿课题。"},
 
-    var listEl = document.getElementById("discList");
-    var tlEl = document.getElementById("timeline");
-    var headerTitle = document.getElementById("headerTitle");
-    var headerDesc = document.getElementById("headerDesc");
-    var mobileTitle = document.getElementById("mobileTitle");
-    var sidebar = document.getElementById("sidebar");
-    var overlay = document.getElementById("overlay");
-    var menuBtn = document.getElementById("menuBtn");
-    var current = "";
+  {year:-2400,era:"元古宙 Proterozoic",person:"大氧化事件（GOE）",event:"大气氧含量第一次跃升",geo:"约 24 亿年前",text:"蓝细菌光合作用经十多亿年积累，终于突破还原性缓冲——大气游离氧从痕量跃升至约 2%。条带状铁矿（BIF）沉积、厌氧生物大规模灭绝，地球大气完成第一次根本性转型。",ctx:"元古宙跨度从 25 亿年到 5.41 亿年前。大氧化伴随休伦冰期——可能是地球最早的「雪球」事件之一。氧气的出现也促使臭氧层逐步形成。"},
+  {year:-2100,era:"元古宙 Proterozoic",person:"真核细胞化石",event:"真核生物诞生",geo:"约 21 亿年前",text:"最早的确切真核生物化石（Grypania spiralis）出现。内共生假说：一个古菌吞噬了需氧细菌（后成为线粒体），获得高效有氧代谢能力——复杂生命的基础由此奠定。"},
+  {year:-720,era:"元古宙 · 新元古代",person:"冰碛岩全球记录",event:"雪球地球",geo:"约 7.2-6.35 亿年前",text:"地球至少两次几乎完全被冰层覆盖（斯图尔特冰期与马里诺冰期）。赤道附近都有冰碛沉积证据。火山持续排放 CO₂ 终于打破冰封，剧烈温室效应使冰层迅速融化。",ctx:"雪球地球解冻后的极端环境波动，被认为是触发埃迪卡拉纪多细胞生物大爆发的关键因素。"},
+  {year:-575,era:"元古宙 · 埃迪卡拉纪",person:"埃迪卡拉生物群",event:"最早的大型多细胞生物",geo:"约 5.75 亿年前",text:"澳大利亚、纳米比亚等地发现叶状、盘状、管状的软体印模化石——地球上最早的复杂多细胞生命群落。它们形态奇异，大多没有留下后代。",ctx:"埃迪卡拉生物群与后来的寒武纪动物群之间的关系至今是古生物学的核心谜题之一。元古宙至此结束，显生宙即将开启。"},
 
-    Object.keys(DISC).forEach(function (key) {
-      var d = DISC[key];
-      var li = document.createElement("li");
-      var btn = document.createElement("button");
-      btn.className = "disc-btn";
-      btn.setAttribute("data-d", key);
-      btn.innerHTML = '<span class="disc-dot"></span>' + d.label + '<span class="disc-count">' + DATA[key].length + '</span>';
-      btn.addEventListener("click", function () { render(key); closeSidebar(); });
-      li.appendChild(btn);
-      listEl.appendChild(li);
-    });
+  {year:-541,era:"显生宙 · 古生代 · 寒武纪",person:"化石记录",event:"生命大爆发",geo:"约 5.41 亿年前",text:"在约两千万年内，几乎所有现存动物门类在化石记录中「突然」出现：三叶虫、奇虾、海口虫……生态系统从微生物世界跃升为复杂的捕食者—猎物网络。三叶虫繁盛，成为古生代的标志化石。",ctx:"中国云南澄江生物群（寒武纪早期）与加拿大伯吉斯页岩（寒武纪中期）是两大关键化石宝库。寒武纪大爆发的成因仍是演化生物学最大谜题之一。"},
+  {year:-445,era:"古生代 · 奥陶纪末",person:"冰川与海平面证据",event:"第一次大灭绝（约 85% 物种灭绝）",geo:"约 4.45 亿年前",text:"冈瓦纳大陆漂移至南极引发大规模冰川作用，海平面急剧下降——约 85% 的海洋物种灭绝。笔石、腕足动物遭受重创。这是显生宙五次大灭绝中的第一次。",ctx:"奥陶纪（4.85-4.44 亿年前）是海洋无脊椎动物的繁盛期，笔石化石后来成为地层对比的标准工具。冈瓦纳大陆包括今天的南美洲、非洲、印度、南极洲和澳大利亚。"},
+  {year:-430,era:"古生代 · 志留纪",person:"维管植物化石",event:"生命登陆——陆生植物出现",geo:"约 4.3 亿年前",text:"最早的维管植物（如顶囊蕨 Cooksonia）在潮湿陆地扎根，开启植物征服大陆的进程。臭氧层的形成为陆地生命提供了必要的紫外屏障。",ctx:"志留纪（4.44-4.19 亿年前）海平面再次上升；珊瑚礁大规模发育。陆生节肢动物（如早期蜘蛛类）也在这一时期登场。"},
+  {year:-375,era:"古生代 · 泥盆纪",person:"提塔利克鱼等过渡化石",event:"鱼类时代与脊椎动物登陆",geo:"约 3.75 亿年前",text:"泥盆纪是鱼类的黄金时代：盾皮鱼邓氏鱼（Dunkleosteus）体长可达 8 米。同时，肉鳍鱼类演化出原始肢骨——提塔利克鱼（Tiktaalik）等过渡类群标志着脊椎动物从水走向陆地的关键一步。",ctx:"泥盆纪（4.19-3.59 亿年前）晚期发生弗拉斯-法门灭绝事件，约 75% 物种消失。陆生蕨类森林已开始扩张，为石炭纪的煤炭时代铺路。"},
+  {year:-350,era:"古生代 · 石炭纪",person:"化石与煤层记录",event:"煤炭森林与巨型昆虫",geo:"约 3.5 亿年前",text:"石松、种子蕨等巨型植物构成茂密沼泽森林，死后掩埋形成今天的煤炭层。大气氧含量高达 35%（今天 21%），催生翼展 70 厘米的巨脉蜻蜓等巨型节肢动物。",ctx:"石炭纪（3.59-2.99 亿年前）的煤炭沉积在 18 世纪成为工业革命的核心能源。当时木质素尚无微生物能高效分解，死木大量堆积成碳。"},
+  {year:-299,era:"古生代 · 二叠纪",person:"板块构造证据",event:"盘古大陆（Pangaea）聚合",geo:"约 2.99 亿年前",text:"各大陆块汇聚为超级大陆潘吉亚（Pangaea），形成从南极延伸到北极的连续陆块。内陆干旱化加剧，爬行动物和合弓纲（哺乳动物祖先）在陆地上崛起。",ctx:"二叠纪（2.99-2.52 亿年前）期间，盘古大陆的聚合深刻改变了全球洋流和气候模式。大陆内部形成广袤沙漠。"},
+  {year:-252,era:"古生代 · 二叠纪末",person:"西伯利亚暗色岩事件",event:"最大灭绝——「大死亡」（96% 海洋物种灭绝）",geo:"约 2.52 亿年前",text:"约 96% 的海洋物种、70% 的陆地脊椎动物物种消失——地球史上最严重的生物大灭绝。西伯利亚暗色岩超级火山喷发持续百万年，引发剧烈温室效应（升温约 10°C）、海洋酸化与广泛缺氧。",quote:"大灭绝不是生命的终点，而是演化的重新洗牌。",ctx:"古生代就此终结。「大死亡」清空了生态位，为中生代恐龙的崛起腾出了舞台。生态系统恢复花了约 1000 万年。"},
 
-    function closeSidebar() {
-      sidebar.classList.remove("open");
-      overlay.classList.remove("show");
-    }
+  {year:-230,era:"显生宙 · 中生代 · 三叠纪",person:"化石记录",event:"恐龙崛起与哺乳动物起源",geo:"约 2.3 亿年前",text:"最早的恐龙（始盗龙 Eoraptor 等）出现在南美洲。同期，最早的哺乳形类（如摩根齿兽 Morganucodon）登场——体型微小、夜行性，在恐龙的阴影下求生。",ctx:"三叠纪（2.52-2.01 亿年前）末期也发生一次大灭绝，清除了恐龙的竞争者（如伪鳄类），使恐龙在侏罗纪取得绝对统治地位。"},
+  {year:-200,era:"中生代 · 侏罗纪",person:"化石与地质证据",event:"恐龙鼎盛与泛大陆分裂",geo:"约 2 亿年前",text:"蜥脚类恐龙（梁龙、腕龙）成为地球史上最大陆生动物。盘古大陆开始分裂为劳亚古陆（北）和冈瓦纳古陆（南），大西洋初步张开。始祖鸟标志鸟类从兽脚类恐龙中演化而出。",ctx:"侏罗纪（2.01-1.45 亿年前）温暖湿润，大气 CO₂ 浓度约为今天的 4-5 倍。针叶林和蕨类覆盖大部分陆地。中国自贡、辽西等地是侏罗纪化石的世界级产地。"},
+  {year:-125,era:"中生代 · 白垩纪",person:"被子植物化石",event:"被子植物革命",geo:"约 1.25 亿年前",text:"开花植物（被子植物）出现并迅速多样化——花朵与昆虫的协同演化（传粉）重塑了陆地生态系统。白垩纪也是恐龙最后的繁盛期：霸王龙、三角龙等标志性物种活跃于此。",ctx:"白垩纪（1.45-0.66 亿年前）全球海平面极高。中国辽宁热河生物群保存了大量带羽毛恐龙化石，为鸟类恐龙起源说提供关键证据。"},
+  {year:-66,era:"中生代 · 白垩纪末",person:"希克苏鲁伯撞击",event:"K-Pg 大灭绝——恐龙时代终结",geo:"约 6600 万年前",text:"一颗直径约 10 公里的小行星撞击墨西哥尤卡坦半岛，叠加印度德干暗色岩火山活动。撞击尘埃遮蔽阳光数年，全球降温——非鸟恐龙、菊石、翼龙全部灭绝。",ctx:"希克苏鲁伯陨石坑直径约 180 公里，撞击能量相当于百亿颗广岛原子弹。此后哺乳动物迅速占据空出的生态位，新生代开启。"},
 
-    menuBtn.addEventListener("click", function () {
-      sidebar.classList.toggle("open");
-      overlay.classList.toggle("show");
-    });
-    overlay.addEventListener("click", closeSidebar);
+  {year:-56,era:"显生宙 · 新生代 · 古近纪",person:"PETM 同位素证据",event:"哺乳动物大辐射与极热事件",geo:"约 5600 万年前",text:"古新世—始新世极热事件（PETM）：全球温度在约 2 万年内飙升 5-8°C，北极圈出现鳄鱼和棕榈树。哺乳动物趁势多样化——马、鲸、灵长类的祖先形态纷纷涌现。",ctx:"古近纪（6600-2300 万年前）是「哺乳动物时代」的开端。印度板块持续向亚欧板块俯冲，青藏高原开始隆起——这一构造运动将深刻改变亚洲乃至全球气候格局。"},
+  {year:-40,era:"新生代 · 古近纪",person:"青藏高原地质证据",event:"青藏高原隆起与亚洲季风形成",geo:"约 4000 万年前起",text:"印度板块持续北推碰撞亚欧板块，青藏高原逐步隆升至平均海拔 4500 米以上。高原热力效应重组大气环流，东亚季风与南亚季风系统由此形成——深刻影响中国乃至全球的降水格局。",ctx:"青藏高原被称为「世界屋脊」和「亚洲水塔」。黄土高原 260 万年的风成沉积忠实记录了季风强度的变化，是全球古气候研究的「天然档案馆」。"},
+  {year:-7,era:"新生代 · 新近纪",person:"查德沙赫人化石",event:"人猿分歧与气候变冷",geo:"约 700 万年前",text:"非洲大裂谷扩张，东非热带雨林退缩为稀树草原。查德沙赫人（Sahelanthropus tchadensis）是目前已知最早的人科动物——直立行走可能正是对开阔草原环境的适应。",ctx:"新近纪（2300-260 万年前）全球持续变冷。南极冰盖约 1400 万年前永久冻结；巴拿马地峡约 300 万年前闭合，切断太平洋与大西洋的热带洋流通道，加剧北半球冰川化。"},
 
-    function fmtYear(e) {
-      if (e.geo) return e.geo;
-      var y = e.year;
-      if (y < 0) return "约公元前 " + Math.abs(y) + " 年";
-      return y + " 年";
-    }
+  {year:-2.6,era:"新生代 · 第四纪 · 更新世",person:"国际年代地层表",event:"冰期—间冰期旋回开始",geo:"约 260 万年前",text:"米兰科维奇旋回（地球轨道偏心率、自转轴倾斜和岁差的周期性变化）驱动冰川反复进退。冰期时北半球冰盖最南可达北纬 40°，海平面比今天低 120 米以上。间冰期回暖，冰川消退。",ctx:"冰川进退塑造了现代地貌：冰碛湖、U 型谷、峡湾、黄土高原。直立人约 180 万年前走出非洲，向亚洲和欧洲扩散。北京人（约 70 万年前）即生活在冰期—间冰期交替的气候背景中。"},
+  {year:-0.3,era:"第四纪 · 更新世",person:"古人类学与基因组学",event:"智人登场",geo:"约 30 万年前",text:"非洲出现解剖学上的现代人（Homo sapiens）。与尼安德特人、丹尼索瓦人曾共存并发生基因交流。约 7 万年前智人开始大规模走出非洲，逐步扩散至各大洲。",ctx:"基因组学显示现代非非洲人群携带约 1-4% 尼安德特人基因。当时正处末次冰期前的间冰期。"},
+  {year:-0.02,era:"第四纪 · 更新世末",person:"冰芯与海洋沉积记录",event:"末次冰盛期（LGM）",geo:"约 2 万年前",text:"北美劳伦泰德冰盖厚达 3 公里覆盖加拿大全境，北欧斯堪的纳维亚冰盖压至英格兰。海平面比今天低约 120 米——白令陆桥连通亚洲与美洲，人类由此进入新大陆。",ctx:"中国：旧石器晚期，华北干冷草原环境，周口店山顶洞人活动。黄土高原风成堆积加速。<br>欧洲：拉斯科洞窟壁画（约 1.7 万年前）展现冰期人类的艺术与精神世界。"},
 
-    function render(key) {
-      current = key;
-      var d = DISC[key];
-      var events = DATA[key];
+  {year:-0.0117,era:"第四纪 · 全新世",person:"冰芯氧同位素跃变",event:"冰期终结——全新世开始",geo:"约 11700 年前（约公元前 9700 年）",text:"末次冰期结束，全球迅速升温 4-7°C，冰川大规模消融。海平面在随后 7000 年内上升约 60 米——黄海、渤海被淹没，英吉利海峡形成，日本群岛与大陆分离。",ctx:"中国：进入新石器时代初期，裴李岗文化（约前 7000 年）与河姆渡文化（约前 5000 年）的稻作/粟作农业即将展开。<br>中东：纳图夫文化已开始半定居采集，随后触发「新石器革命」——人类从狩猎采集转向农业定居。<br>当前定位：全新世属第四纪最新世，特征为人类逐步主导生态系统。"},
+  {year:-0.008,era:"全新世 · 早期",person:"北大西洋沉积记录",event:"8.2 千年气候事件",geo:"约公元前 6200 年",text:"北美劳伦泰德冰盖残余突然崩塌，巨量冰融淡水涌入北大西洋，中断温盐环流——全球降温约 1-3°C，持续约 200 年。中纬度地区出现干旱，多个早期农业社区被迫迁徙。",ctx:"中国：仰韶文化前期（黄河中游），此次降温可能促使聚落从分散走向集中。<br>欧洲：新石器早期扩张阶段；英国 Doggerland（多格兰）被海水彻底淹没，英伦三岛从此与欧洲大陆永久分离。"},
+  {year:-0.0052,era:"全新世 · 大暖期",person:"气候代用指标综合",event:"全新世气候最适期",geo:"约公元前 3500-前 3000 年",text:"全球温度比今天高约 1-2°C，降水丰沛，撒哈拉一度为湖泊密布的绿洲（「绿色撒哈拉」）。此温暖期为早期农业文明的成熟提供了理想条件——人口增长，城邑出现。",ctx:"中国：仰韶文化鼎盛 → 龙山文化过渡期，城址与礼器出现，阶层分化开始。<br>两河流域：苏美尔城邦兴起（乌鲁克、乌尔），楔形文字诞生。<br>埃及：古王国时期，金字塔建造（约前 2600 年）。<br>印度河：哈拉帕文明（摩亨佐-达罗）繁盛。"},
+  {year:-0.0042,era:"全新世",person:"古气候与考古综合",event:"4.2 千年气候事件——多文明同步危机",geo:"约公元前 2200 年",text:"持续约 200 年的严重干旱席卷北半球中低纬度——尼罗河水位骤降，两河流域降水剧减。多个古文明几乎同时衰落或崩溃，是全新世仅次于 8.2 千年事件的气候突变。",ctx:"中国：相传大禹治水约在此时期，夏朝初创（约前 2070 年），黄河下游洪涝与干旱交替。<br>中东：阿卡德帝国崩溃（约前 2154 年）——世界上第一个帝国的覆灭很可能与干旱直接相关。<br>埃及：古王国终结，进入「第一中间期」。<br>印度河：哈拉帕文明开始衰落，城市逐步废弃。"},
+  {year:-0.003,era:"全新世 · 青铜时代",person:"考古学与气候学交叉",event:"青铜文明网络高峰与崩溃",geo:"约公元前 1200-前 1000 年",text:"地中海—中东—中亚形成庞大的青铜贸易网络，锡、铜、黄金跨洋流通。约公元前 1200 年「青铜时代崩溃」——海上民族入侵、地震、干旱叠加，赫梯帝国、迈锡尼文明等同时瓦解。",ctx:"中国：殷商晚期 → 西周初期（武王克商约前 1046 年）。甲骨文记录了频繁旱灾与祭祀求雨。商代青铜器（如司母戊鼎）技艺登峰造极。<br>欧洲：希腊进入「黑暗时代」（约前 1100-前 800 年），线性文字 B 失传，文明断裂数百年。"},
+  {year:-0.0025,era:"全新世 · 铁器时代",person:"气候与文明关联研究",event:"温暖稳定期——轴心时代的物质基础",geo:"约公元前 800-前 200 年",text:"气候温和稳定，农业产出增长，人口密度提升——为雅斯贝尔斯所称「轴心时代」的思想爆发提供物质基础。铁器取代青铜，使森林开垦和大规模农业成为可能。",ctx:"中国：春秋战国（前 770-前 221 年），诸子百家——孔子、老子、庄子、韩非子、墨子。<br>欧洲：古希腊城邦——苏格拉底、柏拉图、亚里士多德；罗马共和国兴起。<br>印度：佛陀（悉达多·乔达摩）与耆那教大雄。<br>中东：波斯帝国与琐罗亚斯德教。<br>→ 几乎在同一时期，欧亚大陆各文明独立涌现了反思性的哲学与宗教突破。"},
+  {year:-0.002,era:"全新世 · 罗马暖期",person:"古气候代用记录",event:"罗马暖期——古典文明的气候窗口",geo:"约公元前 200 年 - 公元 200 年",text:"地中海与东亚同步经历温暖湿润期。葡萄种植线在欧洲北移至英格兰，黄河流域降水充沛。温暖气候支撑了罗马帝国与两汉帝国的农业繁荣和人口高峰。",ctx:"中国：秦统一六国（前 221 年）→ 西汉极盛（汉武帝 前 141-前 87 年）→ 东汉。丝绸之路连通东西方。<br>欧洲：罗马共和国 → 罗马帝国全盛（奥古斯都 → 五贤帝）。<br>全球人口约 1.5-3 亿。温暖气候带来的农业红利是两大帝国繁荣的重要基础。"},
+  {year:-0.0015,era:"全新世 · 晚古代小冰期",person:"冰芯与树轮记录",event:"降温与民族大迁徙",geo:"约公元 300-600 年",text:"全球降温 1-2°C，中亚草原干旱化——游牧民族被迫向南向西迁徙。匈人西迁挤压日耳曼各部，连锁反应导致西罗马帝国灭亡（476 年）。东亚同步经历巨大动荡。",ctx:"中国：西晋灭亡（316 年）→ 五胡十六国 → 南北朝。北方人口大规模南迁（衣冠南渡），推动江南经济开发。<br>欧洲：西罗马帝国崩溃，日耳曼诸王国建立。<br>536 年「神秘迷雾事件」：可能是冰岛火山喷发造成的尘埃遮蔽阳光，全球降温——随后触发查士丁尼大瘟疫（541-549 年），死亡数千万人。"},
+  {year:-0.001,era:"全新世 · 中世纪暖期",person:"历史文献与气候代用",event:"中世纪暖期——文明扩张的温暖窗口",geo:"约 900-1300 年",text:"北半球温度接近甚至略高于 20 世纪水平。温暖气候推动农业北界扩展：维京人殖民格陵兰并抵达北美（文兰 Vinland），欧洲人口翻倍。中国两宋经济文化达到古代巅峰。",ctx:"中国：北宋 → 南宋（960-1279 年）。汴京百万人口，活字印刷、火药武器、指南针航海。占城稻引入使稻米产量翻番。<br>欧洲：维京扩张、十字军东征（1096-1291 年）、哥特大教堂建造高潮。<br>全球：柬埔寨吴哥窟建成（约 1150 年）；伊斯兰黄金时代（巴格达、科尔多瓦）。"},
+  {year:-0.0006,era:"全新世 · 小冰期",person:"冰芯、树轮与历史档案",event:"小冰期——全球性气候寒冷期",geo:"约 1300-1850 年",text:"太阳活动减弱（蒙德极小期 1645-1715 年）叠加火山喷发，全球降温约 1-2°C。欧洲冬季河流封冻，泰晤士河上举办冰上集市。中国北方严寒加剧，农业减产引发连锁危机。",ctx:"中国 · 元末明初：14 世纪气候恶化加剧元末农民起义。<br>中国 · 明末：崇祯大旱（1627-1643 年）是小冰期最严酷阶段。粮食绝收 → 流民起义（李自成、张献忠）→ 明朝灭亡（1644 年）。清初「康乾盛世」得益于 18 世纪小冰期内的相对回暖。<br>欧洲：14 世纪大饥荒（1315-1317 年）→ 黑死病（1347-1353 年，死亡约 30-60% 人口）→ 三十年战争（1618-1648 年）→ 法国大革命前夕（1788-1789 年的歉收加速社会危机）。<br>全球：维京人被迫放弃格陵兰殖民地（约 15 世纪）。"},
+  {year:-0.0002,era:"全新世 · 人类世争论",person:"国际地层委员会",event:"工业革命至今——地质尺度的人类印记",geo:"1800 年至今",text:"化石燃料燃烧使大气 CO₂ 从 280 ppm 升至 420+ ppm（2024 年），全球温度较工业化前上升约 1.2°C。核试验留下放射性同位素标记层，塑料微粒遍布深海沉积——人类活动正在地层中留下不可磨灭的信号。",ctx:"中国 · 清末：鸦片战争（1840 年）开启近代。<br>欧洲：工业革命（英国 1760s →）根本改变全球碳循环。<br>国际地层委员会仍在讨论「人类世」是否应作为正式地质年代单位。<br>当前定位：全新世（11700 年至今），属第四纪最新世，特征为人类主导生态系统。"}
+],
+ai:[
+  {year:1843,person:"巴贝奇 / 洛夫莱斯",event:"分析机与程序思想",text:"巴贝奇设计了可编程通用计算装置「分析机」。洛夫莱斯撰写了人类第一个「程序」（计算伯努利数），并预言此机器可超越纯计算。",work:"洛夫莱斯 1843 年《注释》",quote:"分析机无意创造什么。它只能做我们命令它做的事。——洛夫莱斯",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ada_Lovelace_portrait.jpg/220px-Ada_Lovelace_portrait.jpg"},
+  {year:1936,person:"图灵（Turing）",event:"图灵机",text:"以抽象纸带机严格定义「可计算」——所有可计算函数都能被图灵机模拟。同时证明停机问题不可判定。",work:"《论可计算数及其在判定问题上的应用》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Alan_Turing_Aged_16.jpg/220px-Alan_Turing_Aged_16.jpg",ctx:"同年丘奇独立提出 Lambda 演算——丘奇-图灵论题由此而来。"},
+  {year:1943,person:"麦卡洛克 / 皮茨",event:"人工神经元模型",text:"用数理逻辑描述生物神经元的开/关行为——第一个将逻辑与神经活动数学化的模型。",work:"《神经活动中内在观念的逻辑演算》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Warren_McCulloch.png/220px-Warren_McCulloch.png"},
+  {year:1948,person:"香农（Shannon）",event:"通信的数学理论",text:"建立信息论：比特（bit）、信息熵与信道容量——为数字编码、压缩和所有现代通信奠基。",work:"《通信的数学理论》",quote:"信息是用来消除不确定性的。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/ClaudeShannon_MFO3807.jpg/220px-ClaudeShannon_MFO3807.jpg"},
+  {year:1950,person:"图灵（Turing）",event:"《计算机器与智能》",text:"提出「模仿游戏」（图灵测试）：如果机器在对话中无法被区分为非人，就应承认其「思考」能力。将机器智能变为可讨论的科学与工程议题。",work:"《计算机器与智能》（Mind 期刊）",quote:"我们只能看到眼前很短的距离，但已能看到那里有大量工作要做。",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Alan_Turing_Aged_16.jpg/220px-Alan_Turing_Aged_16.jpg"},
+  {year:1956,person:"麦卡锡 / 明斯基等",event:"达特茅斯会议",text:"十位学者在达特茅斯学院为期两个月的暑期研讨中正式提出「Artificial Intelligence」一词——AI 作为独立学科自觉诞生。",work:"达特茅斯提案（1955 年撰写）",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/John_McCarthy_Stanford.jpg/220px-John_McCarthy_Stanford.jpg",ctx:"参会者后来各自开创了 AI 的重要分支：麦卡锡（Lisp/逻辑）、明斯基（感知/框架）、纽厄尔与西蒙（符号推理/GPS）。"},
+  {year:1957,person:"罗森布拉特（Rosenblatt）",event:"感知机",text:"第一个可通过学习调整权重的线性分类器——掀起神经网络研究的第一次热潮。",work:"感知机算法论文",img:"https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Frank_Rosenblatt.jpg/220px-Frank_Rosenblatt.jpg",ctx:"1969 年明斯基与佩珀特出版《感知机》指出其局限（无法解决异或问题），导致 AI 第一次冬天。"},
+  {year:1965,person:"费根鲍姆等",event:"专家系统 DENDRAL",text:"第一个实用的知识工程系统——输入质谱数据，输出有机分子结构推断。展示 AI 在专业领域的实用价值。",work:"DENDRAL 项目",ctx:"此后 MYCIN（医学诊断）、R1/XCON（计算机配置）等专家系统在 70-80 年代掀起第二次 AI 热潮。"},
+  {year:1986,person:"鲁梅尔哈特 / 辛顿 / 威廉姆斯",event:"反向传播普及",text:"系统阐明多层神经网络的误差反向传播训练算法——打破感知机局限，为日后深度学习复苏提供核心算法基础。",work:"《通过反向传播误差来学习表示》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Geoffrey_Hinton_-_Collision_2023_-_Centre_Stage_%28cropped%29.jpg/220px-Geoffrey_Hinton_-_Collision_2023_-_Centre_Stage_%28cropped%29.jpg",ctx:"辛顿后来被称为「深度学习之父」；此文被引用超过 6 万次。"},
+  {year:1997,person:"IBM Deep Blue 团队",event:"国际象棋人机对决",text:"Deep Blue 以 3.5:2.5 击败世界冠军卡斯帕罗夫——第一次在完备信息博弈中机器战胜人类顶级选手。",work:"Deep Blue 系统",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Deep_Blue.jpg/220px-Deep_Blue.jpg",ctx:"主要依靠暴力搜索与专用硬件；与后来 AlphaGo 的深度学习路线形成对比。"},
+  {year:2012,person:"辛顿团队（Krizhevsky / Sutskever / Hinton）",event:"AlexNet 与 ImageNet 突破",text:"深度卷积网络在 ImageNet 大规模视觉识别挑战赛上以巨大优势夺冠——错误率从 26% 骤降至 16%，引爆深度学习产业化浪潮。",work:"《用深度卷积神经网络进行 ImageNet 分类》",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Geoffrey_Hinton_-_Collision_2023_-_Centre_Stage_%28cropped%29.jpg/220px-Geoffrey_Hinton_-_Collision_2023_-_Centre_Stage_%28cropped%29.jpg",ctx:"GPU 训练 + 大数据 + 深网络三位一体；Sutskever 后来联合创办 OpenAI。"},
+  {year:2017,person:"Vaswani 等（Google）",event:"Transformer 架构",text:"「Attention Is All You Need」——自注意力机制取代 RNN/LSTM 成为序列建模主干，训练可高度并行化。成为 GPT、BERT 及所有大语言模型的基础架构。",work:"论文《Attention Is All You Need》",quote:"Attention is all you need.",ctx:"论文八位作者后来各自创办或加入多家 AI 公司（Cohere、Adept、Character.AI 等）。"},
+  {year:2022,person:"OpenAI 等",event:"ChatGPT 普及",text:"基于 GPT-3.5/4 的对话大模型进入大众日常应用。两个月内用户破亿，重塑搜索、写作、编程与人机交互的边界。",work:"ChatGPT / GPT-4",img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/220px-ChatGPT_logo.svg.png",ctx:"引发全球 AI 监管讨论；大模型军备竞赛从此白热化。"}
+]
+};
 
-      document.documentElement.style.setProperty("--accent", d.color);
+var listEl=document.getElementById("discList"),tlEl=document.getElementById("timeline"),headerTitle=document.getElementById("headerTitle"),headerDesc=document.getElementById("headerDesc"),mobileTitle=document.getElementById("mobileTitle"),sidebar=document.getElementById("sidebar"),overlay=document.getElementById("overlay"),menuBtn=document.getElementById("menuBtn");
 
-      headerTitle.textContent = d.label;
-      headerDesc.textContent = d.desc;
-      mobileTitle.textContent = d.label;
+Object.keys(DISC).forEach(function(k){var d=DISC[k],li=document.createElement("li"),btn=document.createElement("button");btn.className="disc-btn"+(d.disabled?" disabled":"");btn.setAttribute("data-d",k);var extra=d.disabled?'<span class="disc-soon">筹备中</span>':"";btn.innerHTML='<span class="disc-dot"></span>'+d.label+extra+'<span class="disc-count">'+((DATA[k]||[]).length||"")+"</span>";if(!d.disabled)btn.addEventListener("click",function(){render(k);closeSidebar()});li.appendChild(btn);listEl.appendChild(li)});
 
-      document.querySelectorAll(".disc-btn").forEach(function (b) {
-        b.classList.toggle("active", b.getAttribute("data-d") === key);
-      });
+function closeSidebar(){sidebar.classList.remove("open");overlay.classList.remove("show")}
+menuBtn.addEventListener("click",function(){sidebar.classList.toggle("open");overlay.classList.toggle("show")});
+overlay.addEventListener("click",closeSidebar);
 
-      var sorted = events.slice().sort(function (a, b) { return a.year - b.year; });
+function fmtYear(e){if(e.geo)return e.geo;var y=e.year;return y<0?"约公元前 "+Math.abs(y)+" 年":y+" 年"}
 
-      tlEl.innerHTML = "";
-      sorted.forEach(function (ev, i) {
-        var node = document.createElement("article");
-        node.className = "tl-node";
-        node.style.animationDelay = (i * 0.04) + "s";
-        node.innerHTML =
-          '<div class="tl-dot"></div>' +
-          '<div class="tl-year">' + fmtYear(ev) + '</div>' +
-          '<h3 class="tl-title">' + ev.event + '</h3>' +
-          '<p class="tl-person">' + ev.person + '</p>' +
-          '<p class="tl-text">' + ev.text + '</p>';
-        tlEl.appendChild(node);
-      });
+function render(k){var d=DISC[k],ev=DATA[k]||[];document.documentElement.style.setProperty("--accent",d.color);headerTitle.textContent=d.label;headerDesc.textContent=d.desc;mobileTitle.textContent=d.label;document.querySelectorAll(".disc-btn").forEach(function(b){b.classList.toggle("active",b.getAttribute("data-d")===k)});var sorted=ev.slice().sort(function(a,b){return a.year-b.year});tlEl.innerHTML="";sorted.forEach(function(e,i){var n=document.createElement("article");n.className="tl-node";n.style.animationDelay=(i*.04)+"s";var portrait=e.img?'<div class="tl-portrait"><img src="'+e.img+'" alt="'+e.person+'" loading="lazy" /></div>':'<div class="tl-portrait"></div>';var workHtml=e.work?'<p class="tl-work">\u{1F4D6} '+e.work+"</p>":"";var quoteHtml=e.quote?'<blockquote class="tl-quote">\u300C'+e.quote+'\u300D</blockquote>':"";var ctxHtml=e.ctx?'<p class="tl-context">'+e.ctx+"</p>":"";var eraHtml=e.era?'<div class="tl-era">'+e.era+'</div>':"";n.innerHTML='<div class="tl-dot"></div>'+eraHtml+'<div class="tl-top">'+portrait+'<div class="tl-info"><div class="tl-year">'+fmtYear(e)+'</div><h3 class="tl-title">'+e.event+'</h3><p class="tl-person">'+e.person+"</p>"+workHtml+'</div></div><p class="tl-text">'+e.text+"</p>"+quoteHtml+ctxHtml;tlEl.appendChild(n)});window.scrollTo({top:0,behavior:"smooth"})}
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    render("philosophy");
-  </script>
+render("philosophy");
+</script>
 </body>
 </html>
